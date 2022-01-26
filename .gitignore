@@ -1,3 +1,5 @@
 *.iml
 keys.js
 secert.txt
+.DS_Store
+.idea/*
