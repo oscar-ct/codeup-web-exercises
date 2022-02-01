@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Functions Mini Exercises</title>
+</head>
+<body>
+    <script>
+        // function log() {
+        // return "hello";
+        // }
+
+        //var logs = log();
+
+        //console.log(log() + " " + log());
+        //console.log(logs + " " + logs);
+
+        function hi() {
+            var hello = "hello";
+            var world = "world";
+            return hello + " " + world;  // needs a return to call statement, or else it will be undefined in console log
+        }
+        console.log(hi());
+
+
+
+
+
+
+
+        function hi2() {
+            var hello2 = "hello";
+            var world2 = "world";
+            console.log(hello2 + " " + world2);  // DO NOT DO THIS WHEN ASKED TO RETURN
+        }
+        hi2();
+
+
+
+
+
+
+
+
+
+        function returnInput(input) {
+            return input;
+        }
+
+        var four = returnInput(4);
+
+        console.log(four);
+
+        console.log(returnInput(4));
+
+
+
+
+
+
+        function doubleTheNum (num) {
+            return num * 2;
+        }
+
+        console.log(doubleTheNum(8));
+        console.log(doubleTheNum());
+
+
+
+
+
+
+        function multiplyTwoNums (num1, num2) {
+            return num1 * num2;
+        }
+
+        console.log(multiplyTwoNums(2, 2));
+        console.log(multiplyTwoNums(3));  // This will result in NaN
+        console.log(multiplyTwoNums(4, 6));
+
+
+
+
+
+
+        var num1 = 2;
+        var num2 = 4;
+
+        function multiplyTwoNums(num1, num2){
+            return num1 * num2;
+        }
+
+        console.log(multiplyTwoNums(num1, num2));
+
+
+        // ================ !! Mini-exercises !!
+        // Write a function, returnFive, that returns the number five. No inputs should be defined.
+        // what is the input?
+        // no inputs needed
+        // what does the function do?
+        // what is the output?
+        // the number five
+        function returnFive() {
+            return 5;
+        }
+
+
+
+
+        // Write a function, isFive, that takes in an input and returns the boolean value true if the passed argument is the number 5 or the string "5". Return false otherwise.
+        // 1. What input does the function take in?
+        // one input value
+        // 2. What does the function return?
+        //returns some kind of boolean (true/false)
+
+        function isFive(numOrStringFive) {
+            return numOrStringFive == 5;
+
+        }
+
+        console.log(isFive(5), true); // true
+        console.log(isFive("5"), true); // true
+        console.log(isFive(6), false); // false
+
+
+
+        // Write a function, isShortWord, that takes in a string and returns the boolean value true if the passed argument is shorter than 5 characters. Return false otherwise.
+        // 1. What input does the function take in? (how many inputs / what type?)
+        // takes in a string
+
+        // 2. What does function return? (what is the type)
+        // returns a boolean
+
+        function isShortWord(aRandomString) {
+            return aRandomString.length < 5;
+
+        }
+
+        console.log(isShortWord("hi")); // true
+        console.log(isShortWord("hello")); // false
+
+
+
+        // Write a function, isSameLength, that takes in two string inputs and returns the boolean value true if the passed arguments are the same length. Return false otherwise.
+        // 1. What is the input?
+        // two string inputs
+        // 2. What is the function outputting?
+        //
+        // ensure the first string equals the second string in character length and returns true if they are the same length and false otherwise
+
+
+
+        function isSameLength(anotherString, anotherString2) {
+            return (anotherString.length) === (anotherString2.length);
+
+        }
+
+        console.log(isSameLength("hello", "Hello")); // true
+        console.log(isSameLength("hi", "hello")); // false
+
+
+
+
+
+        // Write a function, getSmallerSegment, that takes in a string and a number input. The function should return a substring of the first argument that is as many characters long as the second argument in lowercase.
+        // example input: getSmallerSegment("Codeup", 3)
+        // example output: "cod"
+        // 1. What is the input? a string and a number
+
+        // 2. What is the return value? a string
+
+
+        function getSmallerSegment(str, num) {
+            var convertTolowerCase = str.substring(0, num);
+            return convertTolowerCase.toLowerCase();
+
+            // return str.substring(0,num).toLowerCase());
+
+        }
+
+        console.log(getSmallerSegment("HAPPY TRAILS", 12));
+
+
+
+
+
+
+
+
+        var x = 2;
+        var y = 4;
+        var totalXY = x + y;
+        console.log('The result of num1 + num2 is: ' + totalXY);
+
+        var a = 5;
+        var b = 1;
+        var totalAB = a + b;
+        console.log('The result of num1 + num2 is: ' + totalAB);
+
+        var c = 10;
+        var d = 5;
+        var totalCD = c + d;
+        console.log('The result of num1 + num2 is: ' + totalCD);
+
+
+
+
+        function totals (num1, num2) {
+            var string1 = "The result of num1 + num2 is: "
+            return string1 + (num1 + num2);
+        }
+
+        console.log(totals(2, 4));
+        console.log(totals(5, 1));
+        console.log(totals(10, 5));
+
+
+        //var total = num1 + num2;
+        // return "The result of num1 + num 2 is; " + total;
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
