@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditional Mini Exercises</title>
+</head>
+<body>
+
+
+<script>
+
+"use strict";
+
+
+// CONDITIONALS MINI-EXERCISES
+
+// 1. Create conditional logic to represent the following scenario...
+// If the car is locked, alert 'will not open', otherwise, alert 'will open
+
+
+var locked = true;
+
+if (locked) {
+    alert("will not open");
+}  else {
+    alert("will open");
+}
+
+// (locked) ? alert("Will not open") : alert("Will open");
+
+// 2. Write a function that takes in a string and returns a message based on the string length:
+
+// if the string is no characters, return "Empty string"
+// if the string is one character long, return "One character long"
+// if the string is two characters long, return "Two characters long"
+// Otherwise, return, "That is a long string!"
+
+
+function countCharLength(str) {
+    var str = "codeup";
+    var strLength;
+    if (str.length === 0) {
+        strLength = "Empty string";
+    } else if (str.length === 1) {
+        strLength = "One char long";
+    } else if (str.length === 2) {
+        strLength = "Two char long";
+    } else {
+        strLength = " Long str";
+    }
+    return strLength;
+}
+
+
+
+
+
+
+
+
+
+// 3. Refactor the Following Code into a Ternary Operator:
+
+/*
+    var message;
+    var num = 5;
+    if (num < 10) {
+        message = 'Num less than 10';
+    } else {
+        message = 'Num more than 10';
+    }
+*/
+
+var num = 100;
+var message = (num < 10) ? "Num less than 10" : "Num more than 10"
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
