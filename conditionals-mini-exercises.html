@@ -28,6 +28,11 @@ if (locked) {
 
 // (locked) ? alert("Will not open") : alert("Will open");
 
+
+
+
+
+
 // 2. Write a function that takes in a string and returns a message based on the string length:
 
 // if the string is no characters, return "Empty string"
@@ -36,20 +41,76 @@ if (locked) {
 // Otherwise, return, "That is a long string!"
 
 
-function countCharLength(str) {
-    var str = "codeup";
-    var strLength;
-    if (str.length === 0) {
-        strLength = "Empty string";
-    } else if (str.length === 1) {
-        strLength = "One char long";
-    } else if (str.length === 2) {
-        strLength = "Two char long";
-    } else {
-        strLength = " Long str";
+// function charLength(string) {
+//
+//     if(string.length === 0) {
+//         return "Empty string";
+//     } else if (string.length === 1) {
+//         return "One character long";
+//     } else if (string.length === 2) {
+//         return "Two characters long";
+//     } else {
+//         return "That is a long string!";
+//     }
+// }
+//
+// console.log(charLength("codeup"));
+
+
+
+function charLength(str) {
+
+    switch(str.length) {
+        case 0:
+            return "Empty string";
+        case 1:
+            return "One character long";
+        default:
+            return "That is a long string!";
     }
-    return strLength;
 }
+
+console.log(charLength(""));
+
+
+
+
+
+
+// charLength("codeup");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function countCharLength(str) {
+//     var str = "codeup";
+//     var strLength;
+//     if (str.length === 0) {
+//         strLength = "Empty string";
+//     } else if (str.length === 1) {
+//         strLength = "One char long";
+//     } else if (str.length === 2) {
+//         strLength = "Two char long";
+//     } else {
+//         strLength = " Long str";
+//     }
+//     return strLength;
+// }
 
 
 
@@ -71,11 +132,30 @@ function countCharLength(str) {
     }
 */
 
-var num = 100;
-var message = (num < 10) ? "Num less than 10" : "Num more than 10"
+var num = 2;
+num < 10 ? console.log("Number is less than 10") : console.log("Number is more than 10");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var num = 100;
+var message = (num < 10) ? "Number is less than 10" : "Number is more than 10"
+//
+//
+//
+console.log(message);
 
 
 

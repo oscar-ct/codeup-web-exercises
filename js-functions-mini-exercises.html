@@ -385,25 +385,43 @@
 
             var bondFilm = "Goldfinger";
 
-            if (bondFilm === "Dr. No") {
-            console.log("Fantastic!");
-        } else if (bondFilm === "From Russia With Love") {
-            console.log("Exploding barrels!");
-        } else if (bondFilm === "Goldfinger") {
-            console.log("\"I expect you to die, Mr. Bond.\"");
-        } else if (bondFilm === "Thunderball") {
-            console.log("Kinda long.");
-        } else if (bondFilm === "You Only Live Twice") {
-            console.log("One of the better theme songs.");
-        } else {
-            console.log("That's not one of the first five Bond films.");
-        }
+        //     if (bondFilm === "Dr. No") {
+        //     console.log("Fantastic!");
+        // } else if (bondFilm === "From Russia With Love") {
+        //     console.log("Exploding barrels!");
+        // } else if (bondFilm === "Goldfinger") {
+        //     console.log("\"I expect you to die, Mr. Bond.\"");
+        // } else if (bondFilm === "Thunderball") {
+        //     console.log("Kinda long.");
+        // } else if (bondFilm === "You Only Live Twice") {
+        //     console.log("One of the better theme songs.");
+        //     } else {
+        //     console.log("That's not one of the first five Bond films.");
+        // }
 
 
             // refactor
 
 
-
+        switch(bondFilm) {
+                case "Dr. No":
+                    console.log("Fantastic!");
+                    break;
+                case "From Russia With Love":
+                    console.log("Exploding barrels");
+                    break;
+                case "Goldfinger":
+                    console.log("\"I expect you to die, Mr. Bond.\"");
+                    break;
+                case ("Thunderball"):
+                    console.log("Kinda long.");
+                    break;
+                case ("You Only Live Twice"):
+                    console.log("One of the better theme songs.");
+                    break;
+                default:
+                    console.log("That's not one of the first five Bond films.");
+        }
 
 
 
