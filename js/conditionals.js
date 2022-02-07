@@ -187,11 +187,11 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * HINT: The way we prompt for a value could be improved
  */
 
+
+var number = Number(prompt("Enter a number: ")) //parseInt will work too
+
+
 if (confirm("Would you like to enter a number?")) {
-
-
-    var number = parseInt(prompt("Enter a number: "));
-
 
     if (typeof number === "number" && !isNaN(number)) {
 
@@ -208,9 +208,14 @@ if (confirm("Would you like to enter a number?")) {
         } else if (number < 0) {
             alert("Your number is a negative number");
         }
-    } else {
+        } else {
         alert("This is not a number");
     }
 
 }
+
+
+
+
+
 
