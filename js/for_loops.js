@@ -1,12 +1,13 @@
 "use strict"
-
-
+//// same below
+// for(var i = 100; i >= 5; i -= 5) {
+/// console.log(i);
 
 // for (var i = 100; i > 0; i = i - 5) {
-//     console.log(i)
+//     console.log(i);
 // }
 //
-
+/////same above
 
 
 /// below are two ways of solving
@@ -44,10 +45,10 @@
 
 
 
-function showMultiplicationTable (number) {
-    for (var i = 1; i <= 10; i++) {
-        console.log(number + " x " + i + " = " + (number * i));
-    }
-}
-showMultiplicationTable(7);
+// function showMultiplicationTable (number) {
+//     for (var i = 1; i <= 10; i++) {
+//         console.log(number + " x " + i + " = " + (number * i));
+//     }
+// }
+// showMultiplicationTable(7);
 
