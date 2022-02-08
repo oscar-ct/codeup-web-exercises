@@ -14,6 +14,45 @@ function returnNum (num) {
 
 
 
+function math (number) {
+    return number + number;
+}
+
+
+
+/// squares a number
+function math1 (number) {
+    return number ** 2;
+}
+
+
+
+function math2 (num1, num2) {
+    return (num1 + num1) + (num2 + num2);
+}
+
+
+
+function takesInAString (string) {
+    return string.length;
+}
+
+
+
+function twoStrings (str1, str2) {
+    var string = str1 + str2
+    return string.length;
+}
+
+
+
+function returnToString (num){
+    if (num % 2 === 0) {
+        return "even";
+    }   else {
+        return "odd";
+    }
+}
 
 
 
