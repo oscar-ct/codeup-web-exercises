@@ -62,20 +62,20 @@
     console.log(planets.slice(4));
 
 
-    // Creating two variables that will divide the planets array in half
+    // Creating two variables that will divide the planets array in half in LOWERCASE
 
-    // var firstHalfOfPlanets = planets.slice(0, 4);
-    // firstHalfOfPlanets = firstHalfOfPlanets.toLowerCase();
+    var firstHalfOfPlanetsArray = planets.slice(0, 4);
+    var firstHalfOfPlanetsString = firstHalfOfPlanetsArray.join(" ").toLowerCase();
+    var LowerCaseFirstHalfOfPlanetsArray = firstHalfOfPlanetsString.split(" ")
     //
-    // var secondHalfOfPlanets = planets.slice(4);
-    // secondHalfOfPlanets = secondHalfOfPlanets.toLowerCase();
+    var secondHalfOfPlanetsArray = planets.slice(4);
+    var secondHalfOfPlanetsString = secondHalfOfPlanetsArray.join(" ").toLowerCase();
+    var LowerCaseSecondHalfOfPlanetsArray = secondHalfOfPlanetsString.split(" ")
     //
     //
-    //
-    // // Concat the two new variables to a single new variable to complete the planets array
-    //
-    // var planetsCombined = firstHalfOfPlanets.concat(secondHalfOfPlanets );
-    // console.log(planetsCombined);
-    //
+    console.log("Concatenating the first half of the planets array with the second half of the planets array in lowercase");
+    var planetsCombined = LowerCaseFirstHalfOfPlanetsArray.concat(LowerCaseSecondHalfOfPlanetsArray);
+    console.log(planetsCombined);
+
 
 })();

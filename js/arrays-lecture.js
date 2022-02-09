@@ -42,6 +42,7 @@
 
 
 var hamletQuote = "To be or not to be, that is the question";
+console.log(hamletQuote);
 var noCommasHamletQuote = hamletQuote.replace(",", "").toLowerCase();
 var hamletQuoteArray = noCommasHamletQuote.split(" ");
 
