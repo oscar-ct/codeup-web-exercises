@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects Mini Exercises</title>
+</head>
+<body>
+<script>
+
+
+    // -- Mini Exercise 1
+    // Create a few beverage objects and assign values to each object for the following properties:
+    //     - brandName
+    //     - type
+    //     - volumeInLiters
+    //     - priceInCents
+    //     - expirationDate
+    //     - datesOfPreviousSips (use an array of strings)
+    // - isOpen
+    // Define your objects using both literal syntax to create all properties and values at once and also try defining empty objects and assign property values in separate statements using the dot notation.
+
+
+
+    var beverage = {}
+
+    beverage.brandName = "Sprite";
+    beverage.type = "Sugar-free";
+    beverage.volumeInLiters = 1;
+    beverage.priceInCents = 99;
+    beverage.expirationDate = "12/31/3000";
+    beverage.datesOfPreviousSips = ["12/01/2022", "12/15/2022", "12/31/2022"];
+    beverage.isOpen = {
+        datePurchased: "12/31/1999",
+        dateManufactured: "01/01/1999",
+    };
+
+    console.log(beverage)
+
+
+    var beverage1 = {
+        brandName: "Coke",
+        type: "Cane Sugar",
+        volumeInLiters: 2,
+        priceInCents: 99,
+        expirationDate: "12/31/2022",
+        datesOfPreviousSips: ["12/01/2022", "12/15/2022", "12/31/2022"],
+        isOpen: {
+            datePurchased: "12/31/1999",
+            dateManufactured: "01/01/1999",
+        }
+    };
+
+    console.log(beverage1)
+
+
+
+
+  //   1. Log the names of all users in a single console log separated by spaces. // output = “Sam Cathy Karen”
+  //   2. Change the names of all users to “John Doe”
+  //   3. Increase the current age of all users by 1
+  //   Can you accomplish each step using iteration?
+
+    var users = [
+        {
+            givenName: 'Sam',
+            age: 21
+        },
+        {
+            givenName: 'Cathy',
+            age: 34
+        },
+        {
+            givenName: 'Karen',
+            age: 43
+        }
+    ];
+
+    // console.log(users[0].givenName + ' ' + users[1].givenName + ' ' + users[2].givenName)
+    //
+    //
+    // var message = "";
+    // users.forEach(function (input) {
+    //     message += input.givenName + " ";
+    // });
+    // console.log(message)
+    //
+    //
+    //
+    //
+    // users.forEach(function(input) {
+    //     input.givenName = "John Doe"
+    // });
+    //
+    // users.forEach(function(input) {
+    //     input.age = input.age + 1
+    // });
+    //
+    // console.log(users)
+
+
+    var sumOfAges = (users[0].age + users[1].age + users[2].age)
+    console.log(sumOfAges)
+
+    var avgAge =  sumOfAges / 3
+    console.log(parseInt(avgAge));
+
+
+    // console.log("user : " + users[0].givenName + " | " + "age : " + users[0].age)
+    // console.log("user : " + users[1].givenName + " | " + "age : " + users[1].age)
+    // console.log("user : " + users[2].givenName + " | " + "age : " + users[2].age)
+
+    // var message = "user : "
+    // var message1 = "age : "
+
+
+    users.forEach(function(input) {
+        console.log("user : " + input.givenName + " | " + "age : " + input.age)
+    });
+
+    users.forEach(function(input) {
+        return input.givenName
+    });
+
+
+</script>
+
+
+
+</body>
+</html>

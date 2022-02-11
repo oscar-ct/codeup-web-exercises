@@ -55,4 +55,22 @@ function returnToString (num){
 }
 
 
+var removeBs2 = ["abc", "ab", "cat", "Bay"]
+removeBs2 = removeBs2.join(",").toLowerCase().replaceAll("b", "").split(",");
 
+console.log(removeBs2)
+
+
+
+function removeBs (array) {
+    return array.join(",").toLowerCase().replaceAll("b", "").split(",");
+}
+console.log(removeBs(["abc", "ab", "cat", "Bay"]));
+
+
+
+
+function removeBs3 (array) {
+    return array.join(",").replaceAll("b", "").replaceAll("B", "").split(",");
+}
+console.log(removeBs3(["abc", "ab", "cat", "Bay"]));

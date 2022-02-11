@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects Intro</title>
+</head>
+<body>
+<h1>Intro to Objects</h1>
+<script>
+    "use strict";
+    /*
+        JS Objects
+        - like a named index array
+        - used to store related state and behavior
+        - where arrays are good for storing lists of data, objects store related aspects of a greater structure
+        - we have already used objects: String, Array, Math, Number
+     */
+    // Creating Objects (dog, user, forecast, dictionaryEntry, movie, post, etc.)
+    // New Object Instance
+
+
+    // var dog = new Object();
+    // console.log(typeof dog);
+    //
+    //
+    // // Object Literal Notation
+    //
+    //
+    // var cat = {};
+    // console.log(typeof cat);
+
+
+    // Setting Properties on a Custom Object
+    // create a pet object that has the following properties...
+    // givenName
+    // age
+    // species
+    // hasOffspring
+    // valueInDollars
+
+
+    var pet = {};
+
+    pet.givenName = 'Sparkles';
+    pet.ageInYears = 12;
+    pet.species = 'turtle';
+    pet.hasOffspring = true;
+    pet['value-in-dollars'] = 400; // alternative syntax for assigning properties
+    pet.isCute = undefined;
+    pet.medicalHistory = {}
+    pet.petTreatsEaten = []
+
+
+    var pet1 = {givenName: "Spot", ageInYears: 2, species: "Fish"}
+
+
+
+    console.log(pet);
+    console.log(pet1);
+    var pets = [pet, pet1];
+
+
+    console.log(pet.givenName)
+    console.log(pets)
+
+    console.log(pets[1].givenName)
+
+    var pet2 = {
+        givenName: 'Rex',
+        age: 5,
+        species: 'dog',
+        hasOffspring: false,
+        valueInDollars: 'priceless'
+    };
+    //Peeking into an Object
+    console.log(pet);
+    //Accessing Properties on an Object
+    console.log(pet.givenName);
+    console.log(pet2.givenName);
+    console.log(pet2['givenName']);
+
+    // pet.givenName = "Sabrina";
+    // console.log(pet.givenName);
+    // !! MINI-EXERCISE 1 !!
+
+
+
+    // Nested Values
+    // Add the following to a pet object...
+    // altNames
+    // vitals: averageTemp, restingHeartRate, isHungry
+
+    var pet3 = {
+        name: 'Bowser',
+        age: 6,
+        species: 'dog',
+        hasOffspring: false,
+        valueInDollars: 'priceless',
+        altNames: [
+            'Bowser Boy',
+            'Bowser Man',
+            'Bowser Buddy',
+            'Puggle Wuggle Boy'
+        ],
+        vitals: {
+            averageTempDegF: 101,
+            averageRestingHeartRate: 80,
+            isHungry: true
+        }
+    };
+
+    //log if Bowser is hungry
+    console.log(pet3.name + " is hungry?");
+    console.log(pet3.vitals.isHungry);
+    // log Bowser's average heartRate
+    console.log(pet3.vitals.averageRestingHeartRate);
+    // log Bowser's most recent alternative names
+    console.log(pet3.altNames[2] + " & " + pet3.altNames[3]);
+    console.log(pet3.altNames[pet3.altNames.length -1])
+    // change age to 7 and isHungry to false
+    pet3.age = 7
+    pet3.vitals.isHungry = false
+
+
+
+
+
+    // Arrays of Objects
+    var pets3 = [
+        {
+            givenName: 'Spot',
+            isDog: true
+        },
+        {
+            givenName: 'Max',
+            isDog: false
+        },
+        {
+            givenName: 'Goldy',
+            isDog: false
+        }
+    ];
+
+        console.log(pets[0].givenName);
+
+
+
+    // This is a way to console log the list of givenNames
+    for (var i = 0; i < pets3.length; i += 1) {
+        console.log(pets3[i].givenName)
+    }
+
+    // This is a way to console log the list of givenNames
+    pets3.forEach(function(pet) {
+        console.log(pet.givenName)
+    });
+
+    // This replaces all the givenNames to Bowser
+    pets3.forEach(function(pet) {
+        pet.givenName = "Bowser"
+
+    });
+
+
+
+    // !! MINI EXERCISE 2 !!
+    // Getting a List of Object Keys as an array
+    // console.log(Object.keys(pet4));
+    // Assigning Functionality to an Object
+    // var pet4 = {
+    //     name: "Pickles",
+    //     age: 20,
+    //     species: "horse",
+    //     eat: function (food) {
+    //         console.log("nom nom nom " + food);
+    //     },
+    //     gallop: function() {
+    //         console.log("THUNK THUMP...THUNK THUMP!");
+    //     }
+    // };
+    //
+    // pet4.eat("carrots");
+    // pet4.gallop();
+    // The this Keyword
+    // var pet6 = {
+    //     name: "Sparky",
+    //     age: 3,
+    //     getOlder: function() {
+    //         console.log(this.age);
+    //         this.age += 1;
+    //     }
+    // };
+    //
+    // console.log(pet6.age);
+    // pet6.getOlder();
+    // console.log(pet6.age);
+    // why use this vs. the object name: https://stackoverflow.com/questions/12799702/javascript-this-versus-object-name
+    // !! MINI EXERCISE 3 !!
+
+
+
+var user = {
+    givenName: "Justin",
+    age: 25,
+    sayHello: function(input) {
+        console.log(input);
+    },
+    logAge: function () {
+        console.log(user.age)
+    },
+    getYounger: function () {
+        this.age = this.age - 1;
+    },
+    setAge: function (age) {
+        this.age = age;
+    },
+
+    // addProp: function (name, value) {
+    //     this.name = value;
+    // }
+}
+
+    // user.addProp("sup", "hello")
+    // console.log(user);
+
+
+
+    user.sayHello("What's up!!!");
+    user.logAge();
+    user.getYounger();
+    user.logAge();
+    user.setAge(100);
+    user.logAge();
+    user.getYounger();
+    user.logAge();
+
+
+
+
+</script>
+</body>
+</html>
