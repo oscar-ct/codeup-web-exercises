@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+    <form method="POST" action="https://request-inspector.glitch.me">
+        <fieldset>
+            <legend>Register With Us</legend>
+                <br>
+            <label for ="email">Email:</label>
+            <input type="text" name= "email" id="email" placeholder="email">
+            <br>
+            <br>
+            <label for="password" >Password:</label>
+            <input type = "password" name="password" id="password" placeholder="password">
+            <br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Tell us about yourself</legend>
+            <h4>Bio:</h4>
+            <textarea name="bio" id="bio" cols="48" rows="10"></textarea>
+        </fieldset>
+            <br>
+        <fieldset>
+            <legend>How did you hear about us?</legend>
+            <br>
+            <label><strong>Please select one of the following:</strong></label><br>
+            <br>
+            <input type="checkbox" name="hearFrom" value="Billboard" id="Billboard"><label for="Billboard">Billboard</label><br>
+            <input type="checkbox" name="hearFrom" value="Radio Advertisement" id="Radio Advertisement"><label for="Radio Advertisement">Radio Advertisement</label><br>
+            <input type="checkbox" name="hearFrom" value="Internet Advertisement" id=" Internet Advertisement"><label for=" Internet Advertisement">Internet Advertisement</label><br>
+            <input type="checkbox" name="hearFrom" value="Other" id="Other"><label for="Other">Other</label><br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>What web browser are you currently using?</legend>
+            <br>
+            <label for="browser">Choose a browser:</label>
+            <select name="browser" id="browser">
+                <optgroup label="Browser list">
+                    <option value="Firefox">Firefox</option>
+                    <option value="Edge">Edge</option>
+                    <option value="Safari">Safari</option>
+                    <option value="Other">Other</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <br>
+        <br>
+        <input type="submit">
+        <br>
+        <br>
+        <input type="reset">
+
+    </form>
+</body>
+</html>
