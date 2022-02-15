@@ -74,3 +74,44 @@ function removeBs3 (array) {
     return array.join(",").replaceAll("b", "").replaceAll("B", "").split(",");
 }
 console.log(removeBs3(["abc", "ab", "cat", "Bay"]));
+
+
+var user = {
+    username: "jbomb",
+    email: "john@email.com",
+    isAdmin: true
+};
+
+
+
+//
+// ================================= WARM UP 02/14/2022
+// Write a function, createUserMsg, that takes in a user object like the following...
+// {
+//     username: ‘jbomb’,
+//     email: ‘john@email.com’,
+//     isAdmin: true
+// }
+// ...and returns a string output that displays in the console like this...
+// ‘User jbomb is an admin and can be reached at john@email.com’
+// If jbomb were not an admin, the message should display...
+// ‘User jbomb is not an admin and can be reached at john@email.com’
+//
+//
+//
+
+
+function createUserMessage(user) {
+//     if(user.isAdmin) {
+//         return "User " + user.username + " is an admin and can be reached at " + user.email;
+//     } else {
+//         return "User " + user.username + " is not an admin and can be reached at " + user.email;
+//     }
+// }
+
+    return "User " + user.username + " is " + ((user.isAdmin) ? "" : " not ") + "an admin and can be reached at " + user.email;
+}
+console.log(createUserMessage(user));
+
+
+
