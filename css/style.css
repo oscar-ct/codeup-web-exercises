@@ -1,5 +1,47 @@
 
 h1.fancy-header {
-    color: green;
+    text-align: center;
+    color: greenyellow;
     font-size: 100px;
+    font-family: "sans-serif";
+}
+table {
+    background-color: greenyellow;
+}
+body {
+    background-color: black;
+}
+
+p {
+    text-align: center;
+    color: blue;
+    font-size: 40px;
+}
+
+h2 {
+    text-align: center;
+    color: brown;
+    font-size: 25px;
+}
+
+ol {
+    text-align: center;
+    color: blue;
+    font-size: 25px;
+    list-style: upper-alpha;
+
+}
+
+ul {
+    text-align: center;
+    color: chartreuse;
+    font-size: 25px;
+    list-style: square;
+}
+
+table {
+    text-align: center;
+    color: blue;
+    font-size: 25px;
+
 }
