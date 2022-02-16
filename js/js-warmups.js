@@ -115,3 +115,14 @@ console.log(createUserMessage(user));
 
 
 
+function areaOrPerimeter (l, w){
+    if (isNaN(parseFloat(l)) || (isNaN(parseFloat(w)))) {
+        return false
+    }
+    if (parseFloat(l) === (parseFloat(w))) {
+        return l*w
+    }
+    if (parseFloat(l) !== parseFloat(w)) {
+        return (l+w) * 2
+    }
+}
