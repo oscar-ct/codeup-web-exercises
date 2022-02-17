@@ -1,47 +1,73 @@
-
-h1.fancy-header {
-    text-align: center;
-    color: greenyellow;
-    font-size: 100px;
-    font-family: "sans-serif";
-}
-table {
-    background-color: greenyellow;
-}
 body {
-    background-color: black;
+    background-image: url("https://blusignalsystems.com/wp-content/uploads/2016/12/Savin-NY-Website-Background-Web1.jpg");
+    /*background-repeat: no-repeat;*/
+    background-position: top right;
+    background-attachment: fixed;
 }
 
+header h1.fancy-header {
+    text-align: center;
+    color: black;
+    font-size: 55px;
+    font-family: "sans-serif";
+    text-decoration: underline;
+}
+header p {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
 p {
     text-align: center;
     color: blue;
     font-size: 40px;
 }
-
-h2 {
-    text-align: center;
-    color: brown;
-    font-size: 25px;
-}
-
 ol {
-    text-align: center;
-    color: blue;
+    color: Grey;
     font-size: 25px;
     list-style: upper-alpha;
-
 }
-
 ul {
-    text-align: center;
-    color: chartreuse;
+    color: blue;
     font-size: 25px;
     list-style: square;
 }
 
-table {
+#product {
     text-align: center;
-    color: blue;
-    font-size: 25px;
+    font-size: 40px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+table {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: 2px solid lightgray;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 30px;
+}
 
+td {
+    border: thin dotted grey;
+}
+
+#guarantee {
+    text-align: center;
+    color: black;
+    font-size: 35px;
+}
+a:link {    /* unvisited link */
+    color: #ff0000;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+a:visited {    /* visited link */
+    color: #ff00ff;
+}
+a:hover {    /* mouse over link */
+    color: #00ff00;
+    border-bottom: none;
+}
+a:active {    /* active link */
+    color: #00ffff;
 }
