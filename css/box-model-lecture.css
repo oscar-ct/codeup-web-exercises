@@ -1,0 +1,45 @@
+body {
+    margin: 15px;
+}
+
+
+#main {
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    /*outline: 5px solid crimson;*/
+    /*box-shadow: 10px 10px 10px darkslategray,*/
+    /*            14px 14px 6px darkcyan;*/
+}
+
+#main:hover {
+    outline: 5px solid crimson;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    width: 350px;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: 15px auto;
+}
+p:first-of-type {
+    margin-top: 9px;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+span#qui {
+    font-weight: bold;
+}
+span#ipsa {
+    background-color: gold;
+}
