@@ -171,4 +171,13 @@ var info = {
 console.log(getSimpleUser(info));
 
 
+var numbers = [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]
+
+numbers.forEach(function(num) {
+    if (num % 2 === 0) {
+
+    }
+});
+
+
 
