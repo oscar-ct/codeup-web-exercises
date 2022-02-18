@@ -128,3 +128,47 @@ function areaOrPerimeter (l, w){
 }
 
 
+var information2 = [
+    {
+        firstName: 'Oscar',
+        lastName: "Castro",
+        email: 'oc@codeup.com',
+        username: 'oc123',
+        password: 'oc987'
+    }
+    ];
+
+
+var information = {
+    firstName: 'Oscar',
+    lastName: 'Castro',
+    email: 'oc@codeup.com',
+    username: 'oc123',
+    password: 'oc987'
+}
+
+information2.forEach(function(info) {
+    console.log("firstName : " + info.firstName + "\n" + "lastName : " + info.lastName);
+});
+
+
+function getSimpleUser (info) {
+    return {
+        firstName: info.firstName,
+        lastName: info.lastName
+    }
+}
+console.log(getSimpleUser(information));
+
+
+var info = {
+    firstName: 'Batman',
+    lastName: 'Robin',
+    email: 'oc@codeup.com',
+    username: 'oc123',
+    password: 'oc987'
+}
+console.log(getSimpleUser(info));
+
+
+
