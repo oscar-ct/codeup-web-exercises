@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Positioning Lecture</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        /*
+
+            FLOATS
+
+                - useful for text wrapping
+                - historically used for horizontally positioning elements (painful)
+
+            POSITIONING
+
+                1) Static - default
+                2) Relative - can move elements up and down visually, still in document flow
+                3) Absolute - taken out of document flow and relative to its relative parent
+                4) Fixed - taken out of the document flow
+
+        */
+
+        body {
+            background-color: black;
+            margin: 0;
+        }
+        .container {
+            background-color: lightgray;
+            min-height: 2000px;
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .box1 {
+            height: 150px;
+            width: 150px;
+            background: green;
+        }
+        .box2 {
+            height: 200px;
+            width: 200px;
+            background: blue;
+        }
+        span {
+            color: lightgray;
+            font-size: 2em;
+            font-family: sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<main class="container">
+    <div class="box1">
+        <span>Box 1</span>
+    </div>
+    <div class="box2">
+        <span>Box 2</span>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, aliquid autem commodi consectetur consequuntur debitis eius exercitationem expedita facere fugit illum ipsum itaque laboriosam laborum maxime nemo nesciunt nulla odit officia omnis optio quae sapiente sint soluta vel veritatis vitae voluptas. Debitis distinctio excepturi magnam mollitia odit, officiis! Accusamus alias aut autem blanditiis commodi, corporis deleniti dicta dignissimos distinctio dolor, est ex exercitationem facilis fuga fugiat fugit harum incidunt inventore itaque iusto laborum non nulla numquam pariatur perferendis porro provident quae quam quasi quia repellat saepe sit tempore totam vel voluptate voluptatum! Accusamus, aperiam beatae fuga minus nulla quos velit.
+    </p>
+</main>
+</body>
+</html>
