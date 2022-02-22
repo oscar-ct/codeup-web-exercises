@@ -142,20 +142,20 @@
      */
 
 
-    // for (var i = 0; i < books.length; i++) {
-    //     console.log("Book #: " + (i+1))
-    //     console.log("Title: " + books[i].title)
-    //     console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName)
-    //     console.log("---")
-    // }
+    for (var i = 0; i < books.length; i++) {
+        console.log("Book #: " + (i+1))
+        console.log("Title: " + books[i].title)
+        console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName)
+        console.log("---")
+    }
 
-    // for (var i = 0; i < books.length; i++) {
-    //     var bookMsg = "Book #: " + (i+1) + "\n" +
-    //     "Title: " + books[i].title + "\n" +
-    //     "Author: " + books[i].author.firstName + " " + books[i].author.lastName + "\n" +
-    //     "---";
-    //      console.log(bookMsg);
-    // }
+    for (var i = 0; i < books.length; i++) {
+        var bookMsg = "Book #: " + (i+1) + "\n" +
+        "Title: " + books[i].title + "\n" +
+        "Author: " + books[i].author.firstName + " " + books[i].author.lastName + "\n" +
+        "---";
+         console.log(bookMsg);
+    }
 
 
 
