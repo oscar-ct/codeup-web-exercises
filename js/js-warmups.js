@@ -263,3 +263,41 @@ function createNames (info, info2) {
 }
 console.log(createNames(firstNames, lastNames))
 
+
+
+
+
+function remainder (num1, num2) {
+    if (isNaN(parseFloat(num1)) || isNaN(parseFloat(num2))) {
+        return false
+    }
+    if (num1 > num2) {
+        return num1 % num2
+    }
+        return num2 % num1
+}
+
+console.log(remainder(3, 16))
+
+
+
+
+
+function printer_error (str) {
+    var totalOverM = 0;
+    for (var i in str) {
+        if(str[i] > "m") {totalOverM++}
+    }
+    return "" + totalOverM + "/" + str.length
+}
+
+console.log(printer_error("mmmmmzzzzzzzz"))
+
+
+
+
+
+
+
+
+
