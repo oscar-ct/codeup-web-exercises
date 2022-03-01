@@ -296,8 +296,25 @@ console.log(printer_error("mmmmmzzzzzzzz"))
 
 
 
+var message1 = "Your girlscout cookies are ready to ship. Your total comes to tree fiddy"
+var message2 = "Yo, I heard you were on the lookout for Nessie. Let me know if you need assistance."
+var message3 = "The cost of the ferry across Loch Ness is 3.50"
+var message4 = "The leading batter this year is hitting three fifty"
 
 
+function isLockNessMonster(s) {
+    var lockNess = s.replace(',')
+    var lockNessArray = lockNess.split(" ")
 
+    if (lockNessArray.includes("tree") || lockNessArray.includes("fiddy") || lockNessArray.includes("3.50"))
+   return ("Beware of the monster!!")
+    else {
+        return ("Carry on friend")
+    }
+}
 
+console.log(isLockNessMonster(message1))
+console.log(isLockNessMonster(message2))
+console.log(isLockNessMonster(message3))
+console.log(isLockNessMonster(message4))
 
