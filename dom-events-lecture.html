@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM events lecture</title>
+</head>
+<body>
+
+<style>
+
+    #big-button{
+        height: 20em;
+        width: 20em;
+        background: pink;
+        border: none;
+    }
+
+    .square {
+        height: 20em;
+        width: 20em;
+        background: red;
+    }
+
+</style>
+
+
+<div class="square color"></div>
+<button id="big-button"></button>
+<button>click me</button>
+<button>I am a button</button>
+<button>I am a button</button>
+<script>
+
+
+
+
+// function hey() {
+//     alert("You clicked me!");
+// }
+//
+
+// var clicker = document.querySelector("button");
+// clicker.addEventListener("click", hey)
+//
+//
+// var secondButton = document.getElementsByTagName("button")[1];
+// secondButton.onclick = hey
+
+
+// var all = document.getElementsByTagName("button")
+//
+// for (var i = 0; i < all.length; i++) {
+//     all[i].addEventListener("click", hey)
+// }
+
+
+
+function hi() {
+    alert("I am a square and I am pink!");
+}
+var bigButton = document.getElementById("big-button");
+bigButton.addEventListener("click", hi)
+
+
+
+function sup() {
+    alert("I am a bigger square and I am red!");
+}
+var biggerButton = document.querySelector(".square")
+biggerButton.addEventListener("click", sup)
+
+
+
+</script>
+
+</body>
+</html>

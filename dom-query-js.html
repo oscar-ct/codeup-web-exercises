@@ -6,46 +6,160 @@
 </head>
 <body>
 
+<style>
+
+    button {
+        height: 2.5em;
+        width: 14em;
+        border: none;
+        font-family: Courier;
+    }
+
+    button:hover {
+        background-color: rebeccapurple;
+        color: white;
+    }
+
+    #fifth-button {
+       height: 4em;
+        position: absolute;
+        bottom: 6em
+    }
+
+    li {
+        font-size: 20px;
+    }
+
+    #sixth-button {
+        height: 2.5em;
+        position: absolute;
+        bottom: 2em
+    }
+
+</style>
+
+
 <h1 id="main-header">Hello World!</h1>
+<button id="first-button">Change Header</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
     <li data-dbid="3">Item 3</li>
     <li data-dbid="4">Item 4</li>
-    <li data-dbid="5">Item 5</li>
+    <li data-dbid="5">Item 5</li><br>
 </ul>
+<button id="second-button">Change to grey</button><br><br>
+<button id="third-button">Change to blue</button>
+
 <h2 id="sub-header">Hello Again.</h2>
+<button id="forth-button">Change Sub-Header</button>
 <p class="sub-paragraph">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
     aliquip ex ea commodo consequat. Duis aute irure dolor in
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum.
+    culpa qui officia deserunt mollit anim id est laborum."
 </p>
-
+<button id="fifth-button">Mission Accomplished!!!</button>
+<button id="sixth-button">GoodBye!!!</button>
 <script>
     (function() {
         "use strict";
+
+        var background = document.querySelector("html")
+
+        function changeBackground() {
+            background.style.display = "none"
+
+        }
+
+        function changeHeader() {
+            mainHeader.innerHTML = "JavaScript is Cool"
+        }
+                function normalHeader() {
+                    mainHeader.innerHTML = "Hello world!"
+                }
+
+
+
+        function changeSubHeader(){
+            subHeader.style.color = "blue"
+        }
+                function normalSubHeader(){
+                    subHeader.style.color = "black"
+                }
+
+
+
+        function changeToGrey(){
+            for (var i = 0; i < listItems.length; i++){
+                if (i % 2 !== 0){
+                    listItems[i].style.color = 'grey';
+                }
+            }
+        }
+                function changeToBlack(){
+                    for (var i = 0; i < listItems.length; i++){
+                        if (i % 2 !== 0){
+                            listItems[i].style.color = 'black';
+                        }
+                    }
+                }
+
+        function changeToBlue() {
+            listItems[0].style.color = "blue"
+        }
+                function changeToBlackAgain() {
+                    listItems[0].style.color = "black"
+                }
+
+        function missionAccomplished() {
+            subParagraphs[0].innerText = "Mission Accomplished!"
+        }
+
+                function missionNotAccomplished() {
+                    subParagraphs[0].innerText =     "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                }
+
+
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById("main-header");
 
+
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerText = "JavaScript is Cool"
+        // mainHeader.innerText = "JavaScript is Cool"
+
+        var firstButtonIn = document.getElementById("first-button")
+        firstButtonIn.addEventListener("mouseover", changeHeader)
+
+        var firstButtonOut = document.getElementById("first-button")
+        firstButtonOut.addEventListener("mouseout", normalHeader)
+
+
+
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue"
+        // subHeader.style.color = "blue"
+
+        var forthButtonIn = document.getElementById("forth-button")
+        forthButtonIn.addEventListener("mouseover", changeSubHeader)
+
+        var forthButtonOut = document.getElementById("forth-button")
+        forthButtonOut.addEventListener("mouseout", normalSubHeader)
+
+
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName("li");
 
         // TODO: Set text color on every other list item to grey
-        listItems[2].style.color = "grey"
-        listItems[4].style.color = "grey"
+        // listItems[2].style.color = "grey"
+        // listItems[4].style.color = "grey"
 
         // for (var i = 0; i < listItems.length; i++){
         //     if (i % 2 === 0){
@@ -53,8 +167,15 @@
         //     }
         // }
 
+        var secondButtonIn = document.getElementById("second-button")
+        secondButtonIn.addEventListener("mouseover", changeToGrey)
+
+        var secondButtonOut = document.getElementById("second-button")
+        secondButtonOut.addEventListener("mouseout", changeToBlack)
+
+
         // TODO: Set text color of li with dbid = 1 to blue
-        listItems[0].style.color = "blue"
+        // listItems[0].style.color = "blue"
 
         // for (var i = 0; i < listItems.length; i++) {
         //     var bid = listItems[i].getAttribute('data-dbid')
@@ -62,12 +183,67 @@
         //     listItems[i].style.color='blue';
         // }
 
+        var thirdButtonIn = document.getElementById("third-button")
+        thirdButtonIn.addEventListener("mouseover", changeToBlue)
+
+        var thirdButtonOut = document.getElementById("third-button")
+        thirdButtonOut.addEventListener("mouseout", changeToBlackAgain)
+
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerText = "Mission Accomplished!"
+        // subParagraphs[0].innerText = "Mission Accomplished!"
+
+        var fifthButtonIn = document.getElementById("fifth-button")
+        fifthButtonIn.addEventListener("mouseover", missionAccomplished)
+
+        var fifthButtonOut = document.getElementById("fifth-button")
+        fifthButtonOut.addEventListener("mouseout", missionNotAccomplished)
+
+        var whiteScreen = document.getElementById("sixth-button")
+        whiteScreen.addEventListener("mouseout", changeBackground)
+
+
+
+
+        // function changeColor (color) {
+        //     if (color.key === "g") {
+        //         background.style.backgroundColor = "green"
+        //     }
+        //     if (color.key === "w") {
+        //         background.style.backgroundColor = "white"
+        //     }
+        //     if (color.key === "r") {
+        //         background.style.backgroundColor = "red"
+        //     }
+        //     if (color.key === "b") {
+        //         background.style.backgroundColor = "blue"
+        //     }
+        //
+        // }
+        //
+        // window.addEventListener("keypress", changeColor)
+
+
+
+
+        var changingColors = ["red", "blue", "green"]
+        var index = 0
+                function colors() {
+            if (index >= changingColors.length) {
+                clearInterval(timer);
+            }
+            background.style.backgroundColor = changingColors[index++]
+        }
+
+        var timer = setInterval(colors, 1000);
+
+
+
+
+
     })();
 
 </script>
