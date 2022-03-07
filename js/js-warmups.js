@@ -318,3 +318,68 @@ console.log(isLockNessMonster(message2))
 console.log(isLockNessMonster(message3))
 console.log(isLockNessMonster(message4))
 
+
+
+
+// WARM UP #1 (03/04/2022)
+var parcel = {
+    parcelNumber: 1,
+    weight: 20
+}
+
+// function parcelWeight() {
+//     return parcel.weight
+// }
+
+function parcelWeight(parcel) {
+    return parcel.weight
+}
+
+console.log(parcelWeight(parcel))
+
+// WARM UP #2 (03/04/2022)
+var parcels = [{
+    parcelNumber: 1,
+    weight: 20,
+}, {
+    parcelNumber: 2,
+    weight: 25
+}]
+
+
+function parcelWeights(parcel) {
+    return parcel[0].weight + parcel[1].weight
+}
+
+
+// function parcelWeights () {
+//     return parcels[0].weight + parcels[1].weight
+// }
+
+console.log(parcelWeights(parcels))
+
+// WARM UP #3 (03/04/2022)
+
+// function outputParcelInfo(array) {
+//     var outputDiv = document.getElementById("hello");
+//     var total = 0;
+//     var html = "<table><tr><th>Parcel Number</th><th>Weight</th>";
+//
+//     for (var i = 0; i < array.length; i++) {
+//         total += array[i].weight;
+//         html += "<tr><td>" + array[i].parcelNumber + "</td></td>" + array[i].weight + "</td></tr>";
+//     }
+//     html += "<tr><td>Total:</td><td>" + total + "</td></table>";
+//     outputDiv.innerHTML = html
+// }
+//
+// outputParcelInfo(parcels);
+
+
+// WARM UP #4 (03/04/2022)
+
+
+
+
+
+
