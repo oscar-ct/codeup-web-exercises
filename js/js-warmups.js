@@ -445,18 +445,16 @@ function returnTotalUserLogins(array) {
 //     numberOfLogins: 100
 // }
 
-function returnMostFrequentUser(user) {
+function returnMostFrequentUser(users) {
     var mostFrequentUser = users[0];
-    for (var i = 0; i < user.length; i++) {
-        if (user[i].numberOfLogins > mostFrequentUser.numberOfLogins) {
-            mostFrequentUser = user;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].numberOfLogins > mostFrequentUser.numberOfLogins) {
+            mostFrequentUser = users[i];
         }
     }
     return mostFrequentUser;
 }
 console.log(returnMostFrequentUser(users));
-
-
 
 function returnMostFrequentUser2(users) {
     var mostFrequentUser = users[0];
