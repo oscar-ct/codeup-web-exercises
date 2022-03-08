@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>jQuery Exercise</h1>
+<div class="container">
+    <h3 id="color-list">Color list:</h3>
+    <ul>
+        <li class="colors">Red</li>
+        <li class="colors">Green</li>
+        <li class="colors">Blue</li>
+    </ul>
+
+    <p id="color-info">We have not a color preference</p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<script>
+"use strict";
+
+$(document).ready(function() {
+
+    var content = $("#colors")
+    alert(content)
+//
+//     var newContent = $("#color-list").html();
+//     alert(newContent)
+
+    // alert($("#color-list").html());
+
+
+    // $(".colors").css('border', '1px solid #F00')
+
+    $("li").css('font-size', '20px');
+
+    alert($("h1").html());
+
+
+    $("li, p, h1").css('background-color', 'yellow');
+
+});
+
+</script>
+
+
+</body>
+</html>
