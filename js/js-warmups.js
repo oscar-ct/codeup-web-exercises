@@ -326,16 +326,16 @@ var parcel = {
     parcelNumber: 1,
     weight: 20
 }
-
 // function parcelWeight() {
 //     return parcel.weight
 // }
-
 function parcelWeight(parcel) {
     return parcel.weight
 }
-
 console.log(parcelWeight(parcel))
+
+
+
 
 // WARM UP #2 (03/04/2022)
 var parcels = [{
@@ -345,18 +345,16 @@ var parcels = [{
     parcelNumber: 2,
     weight: 25
 }]
-
-
 function parcelWeights(parcel) {
     return parcel[0].weight + parcel[1].weight
 }
-
-
 // function parcelWeights () {
 //     return parcels[0].weight + parcels[1].weight
 // }
-
 console.log(parcelWeights(parcels))
+
+
+
 
 // WARM UP #3 (03/04/2022)
 
@@ -383,3 +381,190 @@ console.log(parcelWeights(parcels))
 
 
 
+// WARM UP #1  03/07/2022
+
+
+
+// Consider the following array of users:
+
+    var users = [
+        {
+            username: 'fsmith',
+            email: 'fsmith@email.com',
+            numberOfLogins: 23
+        },
+        {
+            username: 'ksmith',
+            email: 'ksmith@email.com',
+            numberOfLogins: 100
+        },
+        {
+            username: 'lsmith',
+            email: 'lsmith@email.com',
+            numberOfLogins: 10
+        }
+    ];
+
+// 1. Create a function, returnFirstUser, that takes in an array of user objects and returns the first user object.
+//
+// returnFirstUser(users) should return...
+//
+// {
+//     username: 'fsmith',
+//         email: 'fsmith@email.com',
+//     numberOfLogins: 23
+// }
+function returnFirstUser (array) {
+    return array[0]
+}
+// console.log(returnFirstUser(users))
+
+
+// 2. Create a function, returnTotalUserLogins, that takes in an array of user objects and returns the total count of logins
+// for all users.
+//
+// returnTotalUserLogins(users) should return... 133
+function returnTotalUserLogins(array) {
+    var total = 0;
+    for (var i = 0; i < array.length; i++) {
+        total += array[i].numberOfLogins;
+    }
+    return total
+}
+// console.log(returnTotalUserLogins(users))
+
+// 3. (optional bonus) create a function, returnMostFrequentUser, that takes in an array of user objects and returns the
+// user object with the highest number of logins.
+//
+//
+// returnMostFrequentUser(users) should return...
+//
+// {
+//     username: 'ksmith',
+//         email: 'ksmith@email.com',
+//     numberOfLogins: 100
+// }
+
+function returnMostFrequentUser(user) {
+    var mostFrequentUser = users[0];
+    for (var i = 0; i < user.length; i++) {
+        if (user[i].numberOfLogins > mostFrequentUser.numberOfLogins) {
+            mostFrequentUser = user;
+        }
+    }
+    return mostFrequentUser;
+}
+console.log(returnMostFrequentUser(users));
+
+
+
+function returnMostFrequentUser2(users) {
+    var mostFrequentUser = users[0];
+    users.forEach(function(user) {
+        // console.log(user.numberOfLogins, mostFrequentUser.numberOfLogins)
+        // console.log(user.numberOfLogins > mostFrequentUser.numberOfLogins);
+        if (user.numberOfLogins > mostFrequentUser.numberOfLogins) {
+            mostFrequentUser = user;
+        }
+    });
+    return mostFrequentUser;
+}
+console.log(returnMostFrequentUser2(users));
+
+
+
+
+// WARM UP 03/08/2022
+
+
+var operations1 = [
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    }
+]
+
+var operations2 = [
+    {
+        operation: 'add',
+        integer: 7
+    },
+    {
+        operation: 'add',
+        integer: 3
+    },
+    {
+        operation: 'multiply',
+        integer: 3
+    },
+]
+var operations3 = [
+
+    {
+        operation: 'subtract',
+        integer: 5
+    },
+    {
+        operation: 'multiply',
+        integer: -2
+    },
+    {
+        operation: 'add',
+        integer: 10
+    },
+]
+
+
+// function computeOperations (array, int) {
+//     var total = 0;
+//
+//     for (var i = 0; i < array.length; i++) {
+//         if (array[i].operation === "add") {
+//             total += array[i].integer
+//         }
+//     }
+//     return int + total
+// }
+// console.log(computeOperations(operations1, 10))
+
+
+
+function computeOperations (array, int) {
+    var total = int;
+
+    for (var i = 0; i < array.length; i++) {
+        if (array[i].operation === "add") {
+            total += array[i].integer
+        } else if (array[i].operation === "multiply") {
+            total *= array[i].integer
+        } else if (array[i].operation === "subtract") {
+            total -= array[i].integer
+        }
+    }
+    return total
+}
+
+
+function computeOperations2 (array, int) {
+    var total = int;
+    array.forEach(function(arr) {
+        if (arr.operation === "add") {
+            total += arr.integer
+        } else if (arr.operation === "multiply") {
+            total *= arr.integer
+        } else if (arr.operation === "subtract") {
+            total -= arr.integer
+        }
+    });
+    return total
+
+}
+
+//
+// console.log(computeOperations2(operations3, 10))
+// console.log(computeOperations2(operations2, 10))
+// console.log(computeOperations2(operations1, 10))
