@@ -26,8 +26,22 @@
 
 $(document).ready(function() {
 
-    var content = $("#colors")
-    alert(content)
+    $('h1').click(function () {
+        $(this).css('color', 'blue')
+    })
+    $('p').dblclick(function () {
+        $(this).css('font-size', '18px')
+    })
+    $('li').hover(function () {
+        $(this).css('color', 'red')
+    }, function () {
+        $(this).css('color', 'black')
+    } )
+
+
+
+//     var content = $("#colors")
+//     alert(content)
 //
 //     var newContent = $("#color-list").html();
 //     alert(newContent)
@@ -37,12 +51,12 @@ $(document).ready(function() {
 
     // $(".colors").css('border', '1px solid #F00')
 
-    $("li").css('font-size', '20px');
-
-    alert($("h1").html());
-
-
-    $("li, p, h1").css('background-color', 'yellow');
+    // $("li").css('font-size', '20px');
+    //
+    // alert($("h1").html());
+    //
+    //
+    // $("li, p, h1").css('background-color', 'yellow');
 
 });
 
