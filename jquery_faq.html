@@ -28,6 +28,16 @@
             background-color: yellow;
         }
 
+        .yellow-bg {
+            background-color: yellow;
+        }
+        .bold-font {
+            font-weight: bold;
+        }
+        .blue-font {
+            color: blue;
+        }
+
 
     </style>
 </head>
@@ -78,7 +88,37 @@
     <dd class="invisible">Vehicles, and vehicle combinations, longer than 21 feet (including bumpers) or wider than 8 feet (including mirrors) are prohibited between Avalanche Campground and the Sun Point parking area. You may however, drive to Avalanche if traveling east, and to Sun Point, if traveling west. Vehicles over 10 feet in height may have difficulty driving west from Logan Pass due to rock overhangs. Stock trucks and trailers may access Packers Roost and Siyeh Bend.</dd>
 </dl>
 
-<button>Toggle Answers</button>
+<button id="btn-1">Toggle Answers</button>
+
+
+
+    <h3 id="national-parks-heading">National Parks</h3>
+    <ul id="national-parks">
+            <li>Arches</li>
+            <li>Badlands</li>
+            <li>Carlsbad Caverns</li>
+            <li>Denali</li>
+            <li>Everglades</li>
+    </ul>
+    <h3>State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+    <h3>State Parks</h3>
+    <ul id="state-parks">
+        <li>Gardner</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+
+
+<button id="btn-2">Toggle Answers</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -90,14 +130,40 @@
     //     $('dd').toggleClass('invisible')
     // })
 
-        $('button').click(function (){
+        $('#btn-1').click(function (){
             $('dd').toggleClass('invisible')
-        })
+        });
 
         $('dt').click(function (){
             $('dt').removeClass('highlight')
             $(this).addClass('highlight')
-        })
+        });
+
+
+        $('#btn-2').click(function () {
+            $('ul').each(function () {
+                $(this).children().last().toggleClass('yellow-bg')
+            })
+        });
+
+        $('h3').click(function () {
+            $(this).next().children().toggleClass('bold-font')
+
+        });
+
+        $('ul').click(function () {
+            $(this).children().first().toggleClass('blue-font')
+
+        });
+
+        // $('li').click(function () {
+        //     $(this).each(function () {
+        //         $(this).toggleClass('yellow-bg')
+        //     })
+        // })
+
+
+
 
 
     });
