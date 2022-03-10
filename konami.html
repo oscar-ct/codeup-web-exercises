@@ -14,7 +14,7 @@
         }
         header {
             color: white;
-            margin-top: .25em;
+            margin-top: 2em;
             font-family: 'Press Start 2P', cursive;
         }
         .box {
@@ -42,6 +42,10 @@
         .bg {
             text-align: center;
         }
+        #divId {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
 
     </style>
@@ -55,7 +59,7 @@
 </header>
 
 
-<main class=" container d-flex flex-wrap g-0 pt-3" id="divId">
+<main class=" container g-0 pt-3" id="divId">
 
     <div class="box" id="box-1"><p>UP</p></div>
     <div class="box" id="box-2"><p>DOWN</p></div>
@@ -72,7 +76,7 @@
     <div class="bg" id="nintendo"><img src="images/nintendo.gif"></div>
 
     <div class="bg">
-    <video class="goldenEye" style="display: none" muted autoplay width="720" height="640">
+    <video class="goldenEye" style="display: none" muted autoplay width="920" height="840">
     <source src="images/007-death.mp4" type="video/mp4">
     </video>
 
@@ -86,6 +90,8 @@
     "use strict";
 
     function goldenEye () {
+        $('main').css('display', 'none')
+        $('header').css('display', 'none')
         $('#nintendo').hide();
         $('.goldenEye').show();
         $('.goldenEye')[0].play();
@@ -102,7 +108,7 @@
 
     function konamiKey() {
         if (konamiCode === keyInput) {
-            // alert('Congrats, you know the cheat code');
+            alert('Congrats, you know the cheat code');
             goldenEye();
             return keyInput = '';
         }
@@ -121,8 +127,8 @@
 
     function konamiClick() {
         if (konamiCode === clickInput) {
+            alert('Congrats, you know the cheat code');
             goldenEye();
-            // alert('Congrats, you know the cheat code');
             return clickInput = '';
         }
         // if (konamiCode !== clickInput && clickInput.length === 22) {
