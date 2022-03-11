@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="posts">
+hello
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+            $.ajax('./data/blog.json/').done(function (data) {
+                console.log(data)
+                $('#posts').html(createText(data))
+            })
+        function createText(data) {
+            var text = '';
+            for (var i = 0; i < data.length; i++) {
+                text +=
+                    '            <h2>' + data[i].title + '</h2>' +
+                    '            <p>' + data[i].content + '</p><br>' +
+                    '            <div>' + data[i].categories.join(', ') + '</div><br>' +
+                    '            <div>' + data[i].date + '</div>';
+            }
+            return text;
+        }
+    });
+</script>
+
+</body>
+</html>
