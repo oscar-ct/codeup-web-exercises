@@ -141,18 +141,23 @@
 
 
         $('#btn-2').click(function () {
-            $('ul').each(function () {
-                $(this).children().last().toggleClass('yellow-bg')
+            $('ul').each(function (i, e) {
+                $(e).children().last().toggleClass('yellow-bg')
             })
         });
 
         $('h3').click(function () {
-            $(this).next().children().toggleClass('bold-font')
+            $(this).next().toggleClass('bold-font')
 
         });
 
-        $('ul').click(function () {
-            $(this).children().first().toggleClass('blue-font')
+        // $('ul').click(function () {
+        //     $(this).children().first().toggleClass('blue-font')
+        //
+        // });
+
+        $('li').click(function () {
+            $(this).parent().children().first().toggleClass('blue-font')
 
         });
 
