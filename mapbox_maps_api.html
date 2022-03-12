@@ -10,7 +10,7 @@
     <style>
         #map {
             width: 100%;
-            height: 400px;
+            height: 600px;
 
         }
     </style>
@@ -34,9 +34,14 @@
         zoom: 14
     });
 
-    var marker = new mapboxgl.Marker({})
-        .setLngLat([-83.59192, 35.33091])
-        .addTo(map);
+        new mapboxgl.Marker({})
+            .setLngLat([-83.59192, 35.33091])
+            .addTo(map)
+            .setPopup(new mapboxgl.Popup()
+                .setHTML("<h1>Rivers End</h1>"))
+
+
+
 
 
 
