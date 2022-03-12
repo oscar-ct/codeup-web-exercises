@@ -25,25 +25,81 @@
 
     "use strict"
 
+
+    var favRestaurants = [
+        {
+            address: "1400 Duval St, Naval Air Station Key West, FL 33040",
+            popupHTML: "<h2>Seaside Cafe at the Mansion</h2>"
+        },
+        {
+            address: "3985 Avila Beach Dr, Avila Beach, CA 93424",
+            popupHTML: "<h2>Mersea's Seafood Restaurant</h2>"
+        },
+        {
+            address: "13077 US-19, Bryson City, NC 28713",
+            popupHTML: "<h2>Rivers end</h2>"
+        }
+    ]
+
+
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
+
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v11',
+    //     center: [-120.7540, 35.16885],
+    //     zoom: 14
+    // });
+    // new mapboxgl.Marker({})
+    //     .setLngLat([-120.7540, 35.16885])
+    //     .addTo(map)
+    //     .setPopup(new mapboxgl.Popup()
+    //         .setHTML("<h1>Mersea's Seafood Restaurant</h1>"))
+
 
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-83.59192, 35.33091],
-        zoom: 14
+        center: [-100.59192, 35.33091],
+        zoom: 4
     });
 
-        new mapboxgl.Marker({})
-            .setLngLat([-83.59192, 35.33091])
-            .addTo(map)
-            .setPopup(new mapboxgl.Popup()
-                .setHTML("<h1>Rivers End</h1>"))
+
+    // FOR LOOP IS NOT WORKING FOR SOME UNKNOWN REASON
+
+    // function placeMarkerAndPopup(info, token) {
+    //     for (var i = 0; i < info.length; i++) {
+    //         console.log(info[i].popupHTML)
+    //         geocode(info[i].address, token).then(function (coordinates) {
+    //
+    //                 var popup = new mapboxgl.Popup()
+    //                     .setHTML(info[0].popupHTML);
+    //
+    //                 var marker = new mapboxgl.Marker()
+    //                     .setLngLat(coordinates)
+    //                     .setPopup(popup)
+    //                     .addTo(map);
+    //                     popup.addTo(map);
+    //         });
+    //     }
+    // }
+    // placeMarkerAndPopup(favRestaurants, MAPBOX_API_TOKEN);
 
 
+    function placeMarkerAndPopup(info) {
+            geocode(info.address, MAPBOX_API_TOKEN).then(function (coordinates) {
 
+                    var popup = new mapboxgl.Popup()
+                        .setHTML(info.popupHTML);
 
-
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(coordinates)
+                        .setPopup(popup)
+                        .addTo(map);
+                        popup.addTo(map);
+            });
+    }
+    favRestaurants.forEach(placeMarkerAndPopup)
 
 
 </script>
