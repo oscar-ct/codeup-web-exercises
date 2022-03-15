@@ -643,8 +643,51 @@ console.log(returnStringObject('Hello'))
 
 
 
+// function countNegatives (arr) {
+//     newArr = arr.filter(function(num){
+//         return num < 0
+//     });
+//     if(newArr.length > 0) {
+//         return newArr.length
+//     } else {
+//         return 0
+//     }
+// }
+
+// console.log(countNegatives([-5, 10, 2]))
 
 
 
+// function countNegatives(num) {
+//     var total = 0
+//     if (num < 0) {
+//         total++;
+//     }
+//     return total;
+// }
+
+var num4 = [-3, 10, 2, 1]
 
 
+// function countNegatives(nums) {
+//     var total = 0;
+//     nums.forEach(function(n) {
+//         if (n < 0) {
+//             total++;
+//         }
+//     });
+//     return total;
+// }
+// console.log(countNegatives(num4));
+
+function countNegatives (arr) {
+    var total = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            total++
+        }
+    }
+    return total
+}
+
+console.log(countNegatives(num4));
