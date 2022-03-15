@@ -691,3 +691,45 @@ function countNegatives (arr) {
 }
 
 console.log(countNegatives(num4));
+
+
+var usernames = [
+    {
+        firstName: 'Bob',
+        lastName: 'Smith',
+        email: 'bob@email.com'
+    },
+    {
+        firstName: 'Sally',
+        lastName: 'Smith',
+        email: 'sally@email.com'
+    },
+    {
+        firstName: 'Fred',
+        lastName: 'Smith',
+        email: 'fred@email.com'
+    },
+    {
+        firstName: 'Cathy',
+        lastName: 'Smith',
+        email: 'cathy@email.com'
+    },
+    {
+        firstName: 'Joe',
+        lastName: 'Smith',
+        email: 'joe@email.com'
+    },
+];
+
+
+function createFirstNamesArray (arr){
+    var firstNames = []
+    for(var i = 0; i < arr.length; i++) {
+        firstNames += arr[i].firstName + ','
+    }
+    firstNames = firstNames.split(',')
+    firstNames.pop()
+    return firstNames
+}
+
+console.log(createFirstNamesArray(usernames)); // returns... ['Bob', 'Sally', 'Fred', 'Cathy', 'Joe']
