@@ -39,7 +39,7 @@
             address: "13077 US-19, Bryson City, NC 28713",
             popupHTML: "<h2>Rivers end</h2>"
         }
-    ]
+    ];
 
 
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
@@ -59,7 +59,7 @@
 
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/satellite-streets-v11',
         center: [-100.59192, 35.33091],
         zoom: 4
     });
@@ -73,8 +73,8 @@
     //         geocode(info[i].address, token).then(function (coordinates) {
     //
     //                 var popup = new mapboxgl.Popup()
-    //                     .setHTML(info[0].popupHTML);
-    //
+    //                     .setHTML(info.popupHTML);
+    //             // console.log(info[i].popupHTML)
     //                 var marker = new mapboxgl.Marker()
     //                     .setLngLat(coordinates)
     //                     .setPopup(popup)
@@ -84,7 +84,6 @@
     //     }
     // }
     // placeMarkerAndPopup(favRestaurants, MAPBOX_API_TOKEN);
-
 
     function placeMarkerAndPopup(info) {
             geocode(info.address, MAPBOX_API_TOKEN).then(function (coordinates) {
@@ -99,8 +98,21 @@
                         popup.addTo(map);
             });
     }
-    favRestaurants.forEach(placeMarkerAndPopup)
+    favRestaurants.forEach(placeMarkerAndPopup);
 
+    // favRestaurants.forEach(function(info){
+    //     geocode(info.address, MAPBOX_API_TOKEN).then(function (coordinates) {
+    //
+    //         var popup = new mapboxgl.Popup()
+    //             .setHTML(info.popupHTML);
+    //
+    //         var marker = new mapboxgl.Marker()
+    //             .setLngLat(coordinates)
+    //             .setPopup(popup)
+    //             .addTo(map);
+    //         popup.addTo(map);
+    //     })
+    // })
 
 </script>
 
