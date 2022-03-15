@@ -10,7 +10,7 @@
     <style>
         #map {
             width: 100%;
-            height: 400px;
+            height: 900px;
 
         }
     </style>
@@ -60,7 +60,7 @@
     //     zoom: 11 // starting zoom
     // });
 
-    geocode("78233", MAPBOX_API_TOKEN).then(function (data) {
+    geocode("Zion National Park", MAPBOX_API_TOKEN).then(function (data) {
         console.log(data)
     })
 
@@ -72,40 +72,47 @@
 
     // Mini - Exercise 4 (before final exercise)
     // Create an HTML file called mapbox-4.html centered on San Antonio that programmatically is re-centered over Zion National Park using the coordinates of the park by geocoding the physical address.
-
+    // Add the latitude and longitude of Honolulu, Hawaii and use reverse geocoding to move the map to this location by geocoding inside of the reverseGeocode function.
 
     var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-98.4916, 29.4552], // starting position [lng, lat]
-        zoom: 11 // starting zoom
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4552],
+        zoom: 11
     });
 
-    function travelToZion () {
-    geocode("Zion National Park", MAPBOX_API_TOKEN).then(function (data) {
-        // map.setCenter([data[0], data[1]])
-        map.setCenter(data)
-        map.setZoom(10)
-        map.setStyle('mapbox://styles/mapbox/streets-v11')
-    })}
+    // function travelToZion () {
+    // geocode("Zion National Park", MAPBOX_API_TOKEN).then(function (data) {
+    //     map.setCenter(data);
+    //
+    //     setTimeout(travelToHonolulu, 3000);
+    //     });
+    // }
+    //
+    // function travelToHonolulu () {
+    // reverseGeocode({lng:-157.8557, lat: 21.3045}, MAPBOX_API_TOKEN).then(function (data) {
+    //     geocode(data, MAPBOX_API_TOKEN).then(function (data) {
+    //         map.setCenter(data);
+    //
+    //         });
+    //     });
+    // }
+    // setTimeout(travelToZion, 3000)
 
-    setTimeout(travelToZion, 3000)
 
 
+    const coordinates = [
+        [-157.8557, 21.3045],
+        [-112.9884495, 37.200947]
+    ];
 
-    reverseGeocode({lng: -157.8583, lat: 21.3069}, MAPBOX_API_TOKEN).then(function (data) { geocode("78233", MAPBOX_API_TOKEN).then(function (data) {
-        map.setCenter(data)
-        map.setZoom(10)
-        map.setStyle('mapbox://styles/mapbox/streets-v11')
-        })
+    map.on('load', function () {
+        for (const [index, coordinate] of coordinates.entries()) {
+            setTimeout(function () {
+                map.jumpTo({ center: coordinate });
+            }, 2000 * index);
+        }
     });
-
-
-
-    //     Add the latitude and longitude of Honolulu, Hawaii and use reverse geocoding to move the map to this location by geocoding inside of the reverseGeocode function.
-
-
-
 
 
 
