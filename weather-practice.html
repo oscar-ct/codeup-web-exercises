@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Practice</title>
+    <script src="js/keys.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+<script>
+
+    // $.ajax('https://api.openweathermap.org/data/2.5/onecall', {
+    // lat: 29.4252,
+    // lon: -98.4916,
+    // appid: WEATHER_API_TOKEN
+    // }).done(function (data){
+    //     console.log(data)
+    // }).fail(function (jqXhr, status, error) {
+    //     console.log(jqXhr)
+    //     console.log(status)
+    //     console.log(error)
+    // })
+
+    $.get('https://api.openweathermap.org/data/2.5/onecall', {
+        lat: 29.4252,
+        lon: -98.4916,
+        appid: WEATHER_API_TOKEN,
+        exclude: 'minutely,hourly,current,alerts',
+        units: 'imperial'
+    }).done(function(data) {
+        console.log(data);
+    }).fail(function(jqXhr, status, error) {
+        console.log(jqXhr);
+        console.log(status);
+        console.log(error);
+    });
+
+
+
+</script>
+
+
+</body>
+</html>
