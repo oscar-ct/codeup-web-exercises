@@ -1,7 +1,8 @@
 "use strict"
 $(window).on('load', function(){
-    getLocation()
+    getLocation();
     getForecast();
+
 });
 
 // MAP JAVASCRIPT
@@ -10,7 +11,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-98.4936, 31.4241],
-    zoom: 5.5
+    zoom: 5
 });
 var marker = new mapboxgl.Marker({draggable: true}) // initial marker location
     .setLngLat([-98.4936, 29.4241])
@@ -28,6 +29,12 @@ $('button').click(function (){
     search = $('#search-bar').val();
     searchBar();
 });
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        search = $('#search-bar').val();
+        searchBar();
+    }
+});
 
 function searchBar() {
     geocode(search, MAPBOX_API_TOKEN).then(function (search){
@@ -37,8 +44,8 @@ function searchBar() {
         getLocation();
         map.flyTo({
             center:(search),
-            zoom: 5.5,
-            speed: 0.6
+            zoom: 6,
+            speed: 0.5
         });
     });
 }
@@ -49,7 +56,14 @@ function getLocation() {
     var lngLat = {lng: coord.lng, lat: coord.lat};
     reverseGeocode2(lngLat, MAPBOX_API_TOKEN).then(function (data) {
         // console.log(data.features[3].place_name)
-        $('#header-3').html(data.features[3].place_name);
+        var currentLocationData = data.features[3].place_name;
+        var currentLocationArray = currentLocationData.split(' ')
+        console.log(currentLocationArray)
+        currentLocationArray.pop()
+        currentLocationArray.pop()
+        var currentLocationString = currentLocationArray.join(' ')
+        console.log(currentLocationArray)
+        $('#header-3').html(currentLocationString);
     });
 }
 
@@ -63,7 +77,7 @@ function getForecast () {
         lat: weatherCoordinates[0],
         lon: weatherCoordinates[1],
         appid: WEATHER_API_TOKEN,
-        exclude: 'minutely,hourly,current,alerts',
+        exclude: 'minutely,hourly,alerts',
         units: 'imperial'
     }).done(function (data) {
 
@@ -82,12 +96,23 @@ function getForecast () {
             return 'Chance Of Rain: ' + '<strong>' + (data.daily[e].pop * 100).toFixed(0) + '</strong>' + '%';
         }
         function getDate(e) {
-            return new Date(data.daily[e].dt * 1000).toDateString();
+            var date = new Date(data.daily[e].dt * 1000).toDateString().split(' ');
+            date.pop()
+            console.log(date)
+            return date.join(' ')
+
         }
         function getIcon(e) {
             var icon = data.daily[e].weather[0].icon;
             return '<img src="http://openweathermap.org/img/w/'+ icon +'.png">';
         }
+        function getHumidity(e){
+            return 'Humidity: ' + '<strong>' + data.daily[e].humidity + '</strong>';
+        }
+        function getUvi(e){
+            return 'UV index: ' + '<strong>' + data.daily[e].uvi + '</strong>';
+        }
+
             var weather = '';
             for (var i = 0; i < 5; i++) {
                 weather += '<div id="weather-box">' +
@@ -95,10 +120,50 @@ function getForecast () {
                         '<div class="weather">' + getTemp(i) + '</div>' +
                         '<div class="weather">' + getDescription(i) + getIcon(i) + '</div>' +
                         '<div class="weather">' + getPrecipitation(i) + '</div>' +
-                        '<div class="weather">' + getWind(i) + '</div>' +
+                        // '<div class="weather">' + getWind(i) + '</div>' +
+                        '<details>' + getHumidity(i) + '%' + '<br>' + getUvi(i) + '<br>' + getWind(i) + '</details>' +
+
                     '</div>';
             }
         $('#forecast').html(weather);
+
+
+        var currentTemp = Math.ceil(data.current.temp) +  '°'
+        var currentDescription  = data.current.weather[0].main
+        var icon = data.current.weather[0].icon
+        var currentIcon =  '<img src="http://openweathermap.org/img/w/'+ icon +'.png">';
+
+        var weather2 = '';
+            weather2 += '<div class="current-weather">' + currentTemp + ' ' + currentDescription + currentIcon + '</div>'
+
+        $('#current').html(weather2);
     });
 }
 
+
+
+
+
+
+
+// function currentWeather () {
+//     $.get('https://api.openweathermap.org/data/2.5/onecall', {
+//         lat: weatherCoordinates[0],
+//         lon: weatherCoordinates[1],
+//         appid: WEATHER_API_TOKEN,
+//         exclude: 'minutely,hourly,alerts',
+//         units: 'imperial'
+//     }).done(function (data) {
+//
+//         var currentTemp = data.current.temp
+//         var currentDescription  = data.current.weather[0].main
+//         var icon = data.current.weather[0].icon
+//         var currentIcon =  '<img src="http://openweathermap.org/img/w/'+ icon +'.png">';
+//
+//
+//         var weather = '<div>' +
+//             '<div class="current-weather">' + currentTemp + currentDescription + currentIcon + '</div>'
+//
+//         $('#current').html(weather);
+//     });
+// }
