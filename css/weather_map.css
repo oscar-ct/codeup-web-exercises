@@ -1,0 +1,124 @@
+#weather-box {
+    width: 20%;
+    margin-right: 1em;
+    margin-left: 1em;
+    transition: all .2s ease-in-out;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    opacity: 90%;
+
+}
+#weather-box:hover {
+    transform: scale(1.1);
+    z-index: +1;
+}
+#forecast {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+    align-items: flex-start;
+}
+.weather {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.weather:nth-of-type(1) {
+    text-align: center;
+    background-color: rgba(211, 211, 211, 0.56)!important;
+    opacity: 100% !important;
+    height: 3em;
+    border-radius: 8px!important;
+    font-size: 18px;
+}
+/*.weather:nth-of-type(5) {*/
+/*    border-bottom: solid lightgrey;*/
+/*    border-radius: 8px;*/
+/*}*/
+/*.weather:nth-of-type(3) {*/
+/*    padding: 0!important;*/
+/*}*/
+
+details {
+    /*border-bottom: solid lightgrey;*/
+    /*border-radius: 8px;*/
+    font-size: 13px;
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
+
+header{
+    display: flex;
+
+    background-color: rgba(8, 70, 114, 0.68);
+    align-items: center;
+    margin-bottom: 1.5em;
+    height: 100px;
+    opacity: 90%;
+}
+#header-1 {
+    width: 35%;
+    height: 75px;
+    padding-left: 1.5em;
+    position: relative;
+    top: .85em;
+    color: white;
+}
+#header-2{
+    width: 40%;
+    height: 40px;
+    margin-right: 1em;
+
+}
+
+#map {
+    width: 95%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 3em;
+}
+#search-bar {
+    border-radius: 10px!important;
+    margin-right: .5em;
+    opacity: 70%;
+}
+#search-bar:hover {
+    opacity: 100%;
+}
+button {
+    border-radius: 10px!important;
+}
+button:hover {
+    transform: scale(1.1);
+    z-index: +1;
+}
+
+body {
+    background-image: linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64b3c9 65%,#005986 90%,#005986);
+}
+H1 {
+    font-weight: lighter;
+}
+#header-3 {
+    margin-left: 2em;
+    color: white;
+    font-size: 24px;
+    padding-right: 1em;
+    font-weight: lighter;
+    white-space: nowrap;
+}
+.current-weather {
+    margin-left: 2em;
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+
+}
+#current-weather {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 20%;
+}
