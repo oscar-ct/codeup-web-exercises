@@ -312,12 +312,12 @@ function isLockNessMonster(s) {
         return ("Carry on friend")
     }
 }
-
-console.log(isLockNessMonster(message1))
-console.log(isLockNessMonster(message2))
-console.log(isLockNessMonster(message3))
-console.log(isLockNessMonster(message4))
-
+//
+// console.log(isLockNessMonster(message1))
+// console.log(isLockNessMonster(message2))
+// console.log(isLockNessMonster(message3))
+// console.log(isLockNessMonster(message4))
+//
 
 
 
@@ -386,24 +386,24 @@ console.log(parcelWeights(parcels))
 
 
 // Consider the following array of users:
-
-    var users = [
-        {
-            username: 'fsmith',
-            email: 'fsmith@email.com',
-            numberOfLogins: 23
-        },
-        {
-            username: 'ksmith',
-            email: 'ksmith@email.com',
-            numberOfLogins: 100
-        },
-        {
-            username: 'lsmith',
-            email: 'lsmith@email.com',
-            numberOfLogins: 10
-        }
-    ];
+//
+//     var users = [
+//         {
+//             username: 'fsmith',
+//             email: 'fsmith@email.com',
+//             numberOfLogins: 23
+//         },
+//         {
+//             username: 'ksmith',
+//             email: 'ksmith@email.com',
+//             numberOfLogins: 100
+//         },
+//         {
+//             username: 'lsmith',
+//             email: 'lsmith@email.com',
+//             numberOfLogins: 10
+//         }
+//     ];
 
 // 1. Create a function, returnFirstUser, that takes in an array of user objects and returns the first user object.
 //
@@ -445,29 +445,29 @@ function returnTotalUserLogins(array) {
 //     numberOfLogins: 100
 // }
 
-function returnMostFrequentUser(users) {
-    var mostFrequentUser = users[0];
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].numberOfLogins > mostFrequentUser.numberOfLogins) {
-            mostFrequentUser = users[i];
-        }
-    }
-    return mostFrequentUser;
-}
-console.log(returnMostFrequentUser(users));
-
-function returnMostFrequentUser2(users) {
-    var mostFrequentUser = users[0];
-    users.forEach(function(user) {
+// function returnMostFrequentUser(users) {
+//     var mostFrequentUser = users[0];
+//     for (var i = 0; i < users.length; i++) {
+//         if (users[i].numberOfLogins > mostFrequentUser.numberOfLogins) {
+//             mostFrequentUser = users[i];
+//         }
+//     }
+//     return mostFrequentUser;
+// }
+// console.log(returnMostFrequentUser(users));
+//
+// function returnMostFrequentUser2(users) {
+//     var mostFrequentUser = users[0];
+//     users.forEach(function(user) {
         // console.log(user.numberOfLogins, mostFrequentUser.numberOfLogins)
         // console.log(user.numberOfLogins > mostFrequentUser.numberOfLogins);
-        if (user.numberOfLogins > mostFrequentUser.numberOfLogins) {
-            mostFrequentUser = user;
-        }
-    });
-    return mostFrequentUser;
-}
-console.log(returnMostFrequentUser2(users));
+//         if (user.numberOfLogins > mostFrequentUser.numberOfLogins) {
+//             mostFrequentUser = user;
+//         }
+//     });
+//     return mostFrequentUser;
+// }
+// console.log(returnMostFrequentUser2(users));
 
 
 
@@ -621,7 +621,7 @@ function returnStringObject (str) {
 return obj
 }
 
-console.log(returnStringObject('Hello'))
+// console.log(returnStringObject('Hello'))
 
 
 //
@@ -690,7 +690,7 @@ function countNegatives (arr) {
     return total
 }
 
-console.log(countNegatives(num4));
+// console.log(countNegatives(num4));
 
 
 var usernames = [
@@ -732,4 +732,10 @@ function createFirstNamesArray (arr){
     return firstNames
 }
 
-console.log(createFirstNamesArray(usernames)); // returns... ['Bob', 'Sally', 'Fred', 'Cathy', 'Joe']
+// console.log(createFirstNamesArray(usernames)); // returns... ['Bob', 'Sally', 'Fred', 'Cathy', 'Joe']
+
+
+$('#change-color').click(function(){
+    $('#square').css('background', 'red')
+})
+
