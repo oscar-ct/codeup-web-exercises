@@ -7,16 +7,18 @@
     background-color: white;
     border-radius: 8px;
     opacity: 90%;
+    box-shadow: 5px 5px 5px darkslategray;
 
 }
 #weather-box:hover {
     transform: scale(1.1);
     z-index: +1;
+
 }
 #forecast {
     display: flex;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     align-items: flex-start;
 }
 .weather {
@@ -29,35 +31,35 @@
     opacity: 100% !important;
     height: 3em;
     border-radius: 8px!important;
-    font-size: 18px;
+    font-size: 19px;
 }
-/*.weather:nth-of-type(5) {*/
-/*    border-bottom: solid lightgrey;*/
-/*    border-radius: 8px;*/
-/*}*/
-/*.weather:nth-of-type(3) {*/
-/*    padding: 0!important;*/
-/*}*/
+.weather:nth-of-type(3) {
+    font-size: 19px;
+}
 
 details {
     /*border-bottom: solid lightgrey;*/
     /*border-radius: 8px;*/
     font-size: 13px;
     margin-top: .25em;
-    margin-bottom: .25em;
+    /*margin-bottom: .25em;*/
+    color: black;
+}
+details:hover {
+    color: darkslategray;
 }
 
-header{
+header {
     display: flex;
-
     background-color: rgba(8, 70, 114, 0.68);
     align-items: center;
     margin-bottom: 1.5em;
     height: 100px;
     opacity: 90%;
+    width: 100%;
 }
 #header-1 {
-    width: 35%;
+    width: 40%;
     height: 75px;
     padding-left: 1.5em;
     position: relative;
@@ -65,7 +67,7 @@ header{
     color: white;
 }
 #header-2{
-    width: 40%;
+    width: 30%;
     height: 40px;
     margin-right: 1em;
 
@@ -88,37 +90,45 @@ header{
 }
 button {
     border-radius: 10px!important;
+    transition: all .2s ease-in-out;
 }
 button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     z-index: +1;
 }
 
 body {
     background-image: linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64b3c9 65%,#005986 90%,#005986);
+    height: 55em;
 }
 H1 {
     font-weight: lighter;
 }
-#header-3 {
+#current-location {
     margin-left: 2em;
     color: white;
     font-size: 24px;
     padding-right: 1em;
     font-weight: lighter;
     white-space: nowrap;
+    width: 100%;
+    text-align: right;
+
 }
-.current-weather {
+#current-weather {
     margin-left: 2em;
     color: white;
     font-size: 24px;
     font-weight: lighter;
+    width: 100%;
+    text-align: right;
+    margin-right: 1em;
 
 }
-#current-weather {
+#current-weather-location-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 20%;
+    /*justify-content: center;*/
+    /*align-items: flex-start;*/
+    width: 30%;
 }
