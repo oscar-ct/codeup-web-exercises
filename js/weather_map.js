@@ -37,7 +37,7 @@ $(document).on('keypress',function(e) {
 });
 
 function searchBar() {
-    geocode(search, MAPBOX_API_TOKEN).then(function (search){
+    geocode(search, MAPBOX_API_TOKEN).then(function(search){
         marker.setLngLat(search);
         weatherCoordinates = marker.getLngLat().toArray().reverse();
         getForecast();
@@ -63,7 +63,7 @@ function getLocation() {
         currentLocationArray.pop()
         var currentLocationString = currentLocationArray.join(' ')
         console.log(currentLocationArray)
-        $('#header-3').html(currentLocationString);
+        $('#current-location').html(currentLocationString);
     });
 }
 
@@ -100,7 +100,6 @@ function getForecast () {
             date.pop()
             console.log(date)
             return date.join(' ')
-
         }
         function getIcon(e) {
             var icon = data.daily[e].weather[0].icon;
@@ -112,6 +111,14 @@ function getForecast () {
         function getUvi(e){
             return 'UV index: ' + '<strong>' + data.daily[e].uvi + '</strong>';
         }
+        function getSunrise(e) {
+            var sunUp = data.daily[e].sunrise * 1000
+            return 'Sunrise: ' + '<strong>'  + new Date(sunUp).toLocaleTimeString("en-US") + '</strong>'
+        }
+        function getSunset(e) {
+            var sunDown = data.daily[e].sunset * 1000
+            return 'Sunset: ' + '<strong>'  + new Date(sunDown).toLocaleTimeString("en-US")  + '</strong>'
+        }
 
             var weather = '';
             for (var i = 0; i < 5; i++) {
@@ -121,14 +128,13 @@ function getForecast () {
                         '<div class="weather">' + getDescription(i) + getIcon(i) + '</div>' +
                         '<div class="weather">' + getPrecipitation(i) + '</div>' +
                         // '<div class="weather">' + getWind(i) + '</div>' +
-                        '<details>' + getHumidity(i) + '%' + '<br>' + getUvi(i) + '<br>' + getWind(i) + '</details>' +
-
-                    '</div>';
+                        '<details>' + getHumidity(i) + '%' + '<br>' + getUvi(i) + '<br>' + getWind(i) + '<br>' + getSunrise(i)+ '<br>' + getSunset(i) + '</details>' +
+                        '</div>';
             }
         $('#forecast').html(weather);
 
 
-        var currentTemp = Math.ceil(data.current.temp) +  '°'
+        var currentTemp = '<strong>' + Math.ceil(data.current.temp) + '</strong>' +  '°'
         var currentDescription  = data.current.weather[0].main
         var icon = data.current.weather[0].icon
         var currentIcon =  '<img src="http://openweathermap.org/img/w/'+ icon +'.png">';
@@ -136,34 +142,6 @@ function getForecast () {
         var weather2 = '';
             weather2 += '<div class="current-weather">' + currentTemp + ' ' + currentDescription + currentIcon + '</div>'
 
-        $('#current').html(weather2);
+        $('#current-weather').html(weather2);
     });
 }
-
-
-
-
-
-
-
-// function currentWeather () {
-//     $.get('https://api.openweathermap.org/data/2.5/onecall', {
-//         lat: weatherCoordinates[0],
-//         lon: weatherCoordinates[1],
-//         appid: WEATHER_API_TOKEN,
-//         exclude: 'minutely,hourly,alerts',
-//         units: 'imperial'
-//     }).done(function (data) {
-//
-//         var currentTemp = data.current.temp
-//         var currentDescription  = data.current.weather[0].main
-//         var icon = data.current.weather[0].icon
-//         var currentIcon =  '<img src="http://openweathermap.org/img/w/'+ icon +'.png">';
-//
-//
-//         var weather = '<div>' +
-//             '<div class="current-weather">' + currentTemp + currentDescription + currentIcon + '</div>'
-//
-//         $('#current').html(weather);
-//     });
-// }
