@@ -1,0 +1,45 @@
+[
+    {
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "Hand Tool"
+        ],
+        "price": 20,
+        "reviews": "⭐ ⭐ ⭐"
+    }, {
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "Power Tool"
+        ],
+        "price": 100,
+        "reviews": "⭐ ⭐ ⭐ ⭐ \uD83C\uDF1F"
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "Tool",
+            "Gas",
+            "Outdoor"
+        ],
+        "price": 200,
+        "reviews": "⭐ ⭐"
+    }, {
+        "title": "Screwdriver Set",
+        "quantity": 25,
+        "categories": [
+            "Hand Tool"
+        ],
+        "price": 10,
+        "reviews": "⭐ ⭐ ⭐ ⭐"
+        }, {
+        "title": "Impact Wrench",
+        "quantity": 10,
+        "categories": [
+            "Power Tool"
+        ],
+        "price": 500,
+        "reviews": "⭐ ⭐ ⭐ ⭐ \uD83C\uDF1F"
+}
+]
