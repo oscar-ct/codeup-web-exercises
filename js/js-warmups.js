@@ -250,49 +250,49 @@ var lastNames = ['Cat', 'Feline', 'Kitten', 'Calico'];
 // HINT: a solution may involve using a for loop to iterate over the length of one array to push each name object onto an array of name objects that will be returned from the function.
 
 
-
-function createNames (info, info2) {
-    var newArr = []
-    for (var i = 0; i < 5; i++) {
-        newArr.push({
-            firstName: info[i],
-            lastName: info2[i]
-        });
-    }
-    return newArr
-}
-console.log(createNames(firstNames, lastNames))
-
-
+//
+// function createNames (info, info2) {
+//     var newArr = []
+//     for (var i = 0; i < 5; i++) {
+//         newArr.push({
+//             firstName: info[i],
+//             lastName: info2[i]
+//         });
+//     }
+//     return newArr
+// }
+// console.log(createNames(firstNames, lastNames))
 
 
 
-function remainder (num1, num2) {
-    if (isNaN(parseFloat(num1)) || isNaN(parseFloat(num2))) {
-        return false
-    }
-    if (num1 > num2) {
-        return num1 % num2
-    }
-        return num2 % num1
-}
+//
+//
+// function remainder (num1, num2) {
+//     if (isNaN(parseFloat(num1)) || isNaN(parseFloat(num2))) {
+//         return false
+//     }
+//     if (num1 > num2) {
+//         return num1 % num2
+//     }
+//         return num2 % num1
+// }
+//
+// console.log(remainder(3, 16))
+//
+//
 
-console.log(remainder(3, 16))
 
-
-
-
-
-function printer_error (str) {
-    var totalOverM = 0;
-    for (var i in str) {
-        if(str[i] > "m") {totalOverM++}
-    }
-    return "" + totalOverM + "/" + str.length
-}
-
-console.log(printer_error("mmmmmzzzzzzzz"))
-
+//
+// function printer_error (str) {
+//     var totalOverM = 0;
+//     for (var i in str) {
+//         if(str[i] > "m") {totalOverM++}
+//     }
+//     return "" + totalOverM + "/" + str.length
+// }
+//
+// console.log(printer_error("mmmmmzzzzzzzz"))
+//
 
 
 
@@ -320,41 +320,41 @@ function isLockNessMonster(s) {
 //
 
 
-
-// WARM UP #1 (03/04/2022)
-var parcel = {
-    parcelNumber: 1,
-    weight: 20
-}
-// function parcelWeight() {
+//
+// // WARM UP #1 (03/04/2022)
+// var parcel = {
+//     parcelNumber: 1,
+//     weight: 20
+// }
+// // function parcelWeight() {
+// //     return parcel.weight
+// // }
+// function parcelWeight(parcel) {
 //     return parcel.weight
 // }
-function parcelWeight(parcel) {
-    return parcel.weight
-}
-console.log(parcelWeight(parcel))
-
+// console.log(parcelWeight(parcel))
+//
 
 
 
 // WARM UP #2 (03/04/2022)
-var parcels = [{
-    parcelNumber: 1,
-    weight: 20,
-}, {
-    parcelNumber: 2,
-    weight: 25
-}]
-function parcelWeights(parcel) {
-    return parcel[0].weight + parcel[1].weight
-}
-// function parcelWeights () {
-//     return parcels[0].weight + parcels[1].weight
+// var parcels = [{
+//     parcelNumber: 1,
+//     weight: 20,
+// }, {
+//     parcelNumber: 2,
+//     weight: 25
+// }]
+// function parcelWeights(parcel) {
+//     return parcel[0].weight + parcel[1].weight
 // }
-console.log(parcelWeights(parcels))
-
-
-
+// // function parcelWeights () {
+// //     return parcels[0].weight + parcels[1].weight
+// // }
+// console.log(parcelWeights(parcels))
+//
+//
+//
 
 // WARM UP #3 (03/04/2022)
 
@@ -586,26 +586,26 @@ var nums5 = [2, 2, 2, 2, 2];
 function includesTwo (num) {
     return num === 2
 }
-
-function addTwos(array) {
-    var all = array.filter(includesTwo)
-    var sum = 0
-   for (var i = 0; i < all.length; i++) {
-       sum += all[i]
-   }
-   return sum
-}
-
-
-console.log(addTwos(nums3))
-
-
-
-addTwos(nums1) // returns 2
-addTwos(nums2) // returns 4
-addTwos(nums3) // returns 0
-addTwos(nums4) // returns 8
-addTwos(nums5) // returns 10
+//
+// function addTwos(array) {
+//     var all = array.filter(includesTwo)
+//     var sum = 0
+//    for (var i = 0; i < all.length; i++) {
+//        sum += all[i]
+//    }
+//    return sum
+// }
+//
+//
+// console.log(addTwos(nums3))
+//
+//
+//
+// addTwos(nums1) // returns 2
+// addTwos(nums2) // returns 4
+// addTwos(nums3) // returns 0
+// addTwos(nums4) // returns 8
+// addTwos(nums5) // returns 10
 
 
 
@@ -722,15 +722,15 @@ var usernames = [
 ];
 
 
-function createFirstNamesArray (arr){
-    var firstNames = []
-    for(var i = 0; i < arr.length; i++) {
-        firstNames += arr[i].firstName + ','
-    }
-    firstNames = firstNames.split(',')
-    firstNames.pop()
-    return firstNames
-}
+// function createFirstNamesArray (arr){
+//     var firstNames = []
+//     for(var i = 0; i < arr.length; i++) {
+//         firstNames += arr[i].firstName + ','
+//     }
+//     firstNames = firstNames.split(',')
+//     firstNames.pop()
+//     return firstNames
+// }
 
 // console.log(createFirstNamesArray(usernames)); // returns... ['Bob', 'Sally', 'Fred', 'Cathy', 'Joe']
 
@@ -739,3 +739,22 @@ $('#change-color').click(function(){
     $('#square').css('background', 'red')
 })
 
+
+
+// $('.square').eq(0).hover(function (){
+//     $(this).css('background', 'blue');
+// }, function () {
+//     $(this).css('background', 'white');
+// });
+//
+// $('.square').eq(1).hover(function (){
+//     $(this).css('background', 'red');
+// }, function () {
+//     $(this).css('background', 'white');
+// });
+//
+// $('.square').eq(2).hover(function (){
+//     $(this).css('background', 'green');
+// }, function () {
+//     $(this).css('background', 'white');
+// });
