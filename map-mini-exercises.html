@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map, Filter, Reduce Mini-Exercises</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+    // TODO: Given the following array, complete the todos...
+
+    const dogs = [
+        {
+            dogName: 'Bubbles',
+            age: 10,
+            isTrained: false
+        },
+        {
+            dogName: 'Lexie',
+            age: 3,
+            isTrained: true
+        },
+        {
+            dogName: 'Doggy',
+            age: 5,
+            isTrained: false
+        },
+        {
+            dogName: 'Flopper',
+            age: 3,
+            isTrained: true
+        },
+        {
+            dogName: 'Lexie',
+            age: 1,
+            isTrained: true
+        },
+        {
+            dogName: 'Skip',
+            age: 7,
+            isTrained: true
+        },
+        {
+            dogName: 'Blue',
+            age: 4,
+            isTrained: false
+        }
+    ];
+
+    // MAP
+
+    // TODO 1: using map, create a new array of dog names from the dogs array
+
+    // const {dogName, age, isTrained} = dogs
+
+    const dogsNames = dogs.map(function (dog){
+        return dog.dogName
+    });
+    console.log('Exercise 1:', dogsNames);
+
+    // TODO 2: using map, create a new array of dog ages from the dogs array
+    const dogsAges = dogs.map(function (dog){
+        return dog.age
+    });
+
+    console.log('Exercise 2:', dogsAges);
+
+    // TODO 3: using map, create a new array of dog objects from the dogs array that only have dog names and age properties and values
+    const dogsObj = dogs.map(function (dog){
+        return {
+            dogName: dog.dogName,
+            age: dog.age
+        }
+    });
+    console.log('Exercise 3:', dogsObj);
+
+
+    // FILTER
+
+    // TODO 4: using filter, create a new array containing only dogs younger than 10 years old
+    const dogsUnder10 = dogs.filter((dog) => dog.age < 10);
+    console.log('Exercise 4:', dogsUnder10);
+
+    // TODO 5: using filter, create a new array containing only dogs named 'Lexie'
+    const dogsNamedLexie = dogs.filter((dog) => dog.dogName === 'Lexie');
+    console.log('Exercise 5:', dogsNamedLexie);
+
+    // TODO 6: using filter, create a new array containing only dogs that are trained and younger than 10
+    const dogsTrainedAndUnder10 = dogs.filter((dog) => dog.isTrained === true && dog.age < 10);
+    console.log('Exercise 6:', dogsTrainedAndUnder10);
+
+
+    // REDUCE
+
+    // TODO 7: using reduce, return a string containing all dog names together with no spaces ("BubblesLexieDoggy...")
+    const dogsString = dogs.reduce(function (previousValue, currentValue){
+    return  previousValue + currentValue.dogName;
+    }, '');
+    console.log('Exercise 7:', dogsString);
+
+    // TODO 8: using reduce, return the total of adding all dog ages together (18)
+    const totalDogYears = dogs.reduce(function (previousValue, currentValue){
+        return previousValue + currentValue.age
+    }, 0);
+    console.log('Exercise 8:', totalDogYears);
+
+    // TODO 9: using reduce, return an array of dog objects with all isTrained properties set to true
+    // const trainedDogs = dogs.filter((dog) => dog.isTrained === true);
+
+    const trainedDogs = dogs.reduce(function (previousValue, currentValue) {
+        if (currentValue.isTrained) previousValue.push(currentValue)
+        return previousValue
+    }, []);
+
+    console.log('Exercise 9:', trainedDogs);
+
+
+    // EXTRA CHALLENGES
+
+    // TODO 10: what is the average age of each dog?
+    console.log('Exercise 10:');
+
+    // TODO 11: what is the average age of dogs that are trained?
+    console.log('Exercise 11:');
+
+    // TODO 12: what is the average length of names of untrained dogs?
+    console.log('Exercise 12:');
+
+    // TODO 13: what are the combined ages of all dogs in dog years? (7x more than a human year)
+    console.log('Exercise 13:');
+
+    // TODO 14: create a string of the first letters of each dog name for dogs three years old (should be "LF")
+    console.log('Exercise 14:');
+
+
+
+    // const numbers = [1, 2, 3, 4, 5];
+    //
+    // const sum = numbers.reduce((accumulation, currentNumber) => {
+    //     console.log('acc: ' + accumulation)
+    //     console.log('current: ' + currentNumber)
+    //     return accumulation + currentNumber;
+    // }, 0);
+    //
+    // console.log(sum)
+    //
+    // const salesPeople = [
+    //     {name: 'Jim Halpert', sales: 100},
+    //     {name: 'Dwight Schrute', sales: 50},
+    //     {name: 'Andy Bernard', sales: 150},
+    // ];
+    //
+    // const totalSales = salesPeople.reduce((total, person) => {
+    //     console.log('total: ' + total)
+    //     console.log('person: ' + person.sales)
+    //     return total + person.sales;
+    // }, 0);
+    //
+    // console.log(totalSales)
+
+
+    function countWords(sentence) {
+        const words = sentence.split(' '); // transform a sentence into an array of words
+        console.log(words)
+        const wordCountObject = words.reduce((wordCounts, word) => {
+            console.log('wordCounts: ' + wordCounts)
+            console.log('word: ' + word)
+            if (typeof wordCounts[word] === 'undefined') {
+                // if the word is not yet present in our object, set it's value to 1
+                wordCounts[word] = 1;
+            } else {
+                // otherwise increment the existing count
+                wordCounts[word] += 1;
+            }
+            return wordCounts;
+        }, {}); // start with an empty object
+        return wordCountObject;
+    }
+
+    console.log(countWords('Mary had a little lamb little lamb little lamb'));;
+    // {Mary: 1, had: 1, a: 1, little: 3, lamb: 3}
+
+
+</script>
+</body>
+</html>
