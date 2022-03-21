@@ -182,6 +182,220 @@
     // {Mary: 1, had: 1, a: 1, little: 3, lamb: 3}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // Array of numbers someone likes for some reason
+    const favoriteNumbers = [11, 17, 15, 12, 100, 7, 1, 3, 9, 50,52, 44, 13, 19];
+
+    const myCats = ['Little One', "Mao Mao", "Lizzy"]
+
+    const arrayOfTVShows = [
+        {
+            title: "The Office",
+            seasons: 9,
+            imdbScore: 9,
+            firstEpisodeYear: 2005,
+            characters: ["Micheal", "Pam", "Jim", "Andy"]
+        },
+        {
+            title: "Game of Thrones",
+            seasons: 8,
+            imdbScore: 9.3,
+            firstEpisodeYear: 2011,
+            characters: ["Jon", "Arya", "Sansa", "Tyrion"]
+        },
+        {
+            title: "The Good Place",
+            seasons: 4,
+            imdbScore: 8.2,
+            firstEpisodeYear: 2016,
+            characters: ["Janet", "Chidi", "Elenor", "Jason", "Tahani"]
+        },
+        {
+            title: "Breaking Bad",
+            seasons: 5,
+            imdbScore: 9.5,
+            firstEpisodeYear: 2008,
+            characters: ["Walter", "Jesse", "Skylar"]
+        },
+    ]
+
+    // MAP
+
+    // TODO: double each number in the favorite numbers array.
+
+    const doubleNumbersArray = favoriteNumbers.map((number) => number*2);
+
+    console.log("doubleNumbersArray:", doubleNumbersArray)
+    console.log("favoriteNumbers:", favoriteNumbers)
+
+
+    // You could use forEAch to solve the same problem in another way. Although the syntax is longer in many cases
+    const forEachExample = [];
+    favoriteNumbers.forEach((element) =>  {
+        forEachExample.push(element *2)
+    })
+
+    console.log("forEachExample:", forEachExample)
+
+    const uppercaseCats = myCats.map((element) => element.toUpperCase())
+
+    console.log("uppercaseCats:", uppercaseCats)
+
+    // This is easily reusable in other map functions
+    const mapElementToLI = (element) => `<li>${element}</li>`
+
+    const uppercaseCatsHTML = uppercaseCats.map(mapElementToLI)
+
+    console.log("uppercaseCatsHTML:", uppercaseCatsHTML)
+
+
+    document.getElementById("myCats").innerHTML = uppercaseCatsHTML.join("")
+
+    //TODO: create a headline that could be accessed later. using the title, seasons and imdbScore
+
+    const mapHeadlineToArray =  (show) => {
+        const { title, seasons, imdbScore }  = show
+
+        return {
+            ...show, // spread operator, allows you to get all the properties from show and display them in resulted object
+            headline: `${title} (${seasons} seasons) has an average IMDB score of ${imdbScore}`
+        }
+    }
+    const headlineTVShows = arrayOfTVShows.map(mapHeadlineToArray);
+
+    console.log("headlineTVShows:", headlineTVShows)
+
+
+    // FILTER
+
+    // TODO: Get only the odd numbers from the favorite numbers array
+
+    const oddFavorites = favoriteNumbers.filter((number) => number % 2)
+
+    console.log("oddFavorites:", oddFavorites)
+
+    // TODO: From the cats array I want to only get the cats that have a name of 7 or
+    //  less characters.
+
+    // You can separate the callback function from the filter if needed for readability or otherwise
+    const filterCatsUnder7Characters = (cat) => cat.length < 10
+    const catsWithShortNames = myCats.filter(filterCatsUnder7Characters);
+
+    console.log("catsWithShortNames:", catsWithShortNames)
+
+    // TODO: Combine the tools!
+    // TODO: take the cats array that you returned from the filter above and map it to the page.
+
+    const catsWithShortNamesHTML = myCats.filter(filterCatsUnder7Characters).map(mapElementToLI)
+
+    console.log("catsWithShortNamesHTML:", catsWithShortNamesHTML)
+
+    document.getElementById("shortNamesCats").innerHTML = catsWithShortNamesHTML.join("");
+
+
+    // TODO: Filter the movies array such that it would return items 9 or over on the
+    //  imdb rating scale and the show is created after or equal to 2008
+
+    // This item filters on two values, you can of course do more if you needed it
+    const bestShow = arrayOfTVShows.filter((show) => show.imdbScore >= 9 && show.firstEpisodeYear >= 2008)
+
+    console.log("bestShow:", bestShow)
+
+
+    // REDUCE
+
+
+    // TODO: Get the sum of all favorite  numbers
+
+    // const favoriteSum = favoriteNumbers.reduce((previousValue, currentValue) => previousValue+currentValue)
+    //
+    //
+    // console.log("favoriteSum:", favoriteSum)
+
+    const favoriteSum = favoriteNumbers.reduce((previousValue, currentValue, index) => {
+        // console.log("index :", index);
+        return previousValue+currentValue
+    }, 0);
+
+    console.log("favoriteSum:", favoriteSum)
+
+    //TODO:
+
+    const title = 'Full Cats HTML'
+    const fullCatsHTML = myCats
+        .map(mapElementToLI)
+        .reduce((previousValue, currentValue) => previousValue + currentValue, `<h2>${title}</h2><ul>`) + "</ul>"
+
+    console.log("fullCatsHTML:", fullCatsHTML)
+
+
+    document.getElementsByTagName("body")[0].innerHTML += fullCatsHTML
+
+
+
+    // TODO: Create a rollup report that contians the total # of TV Shows, the average IMDB SCORE,
+    //  and the all the starting years for the shows
+
+
+    const initialValue = {
+        totalTVShows: 0,
+        avgIMDBScore:  0,
+        startingYears: []
+    }
+
+    const getTVShowsReport = (previousValue, currentValue, index) => {
+
+        let {totalTVShows, avgIMDBScore, startingYears} = previousValue;
+
+        avgIMDBScore = ((avgIMDBScore * index ) + currentValue.imdbScore) / (index + 1);
+
+        startingYears.push(currentValue.firstEpisodeYear)
+
+
+        return {
+            totalTVShows: totalTVShows + 1,
+            avgIMDBScore,
+            startingYears
+        }
+    }
+
+    const tvShowReport = arrayOfTVShows.reduce(getTVShowsReport,initialValue);
+
+    console.log("tvShowReport:", tvShowReport);
+
+    const report = [tvShowReport]
+        .map((item) => {
+            console.log("item :", item);
+
+            const yearsMap = (item, index, array) =>  `<span>${item}</span>${(index < (array.length - 1)) ? "," : "." } `
+
+            return `
+        <h2>TV Show Report</h2>
+           <div>
+            <div>Total TV shows: ${item.totalTVShows}</div>
+            <div>Avg IMDB Score: ${item.avgIMDBScore}</div>
+            <div>Starting years: ${item.startingYears.map(yearsMap).join("")}</div>
+        </div>
+        `
+        })
+
+    console.log("report:", report)
+
+    document.getElementsByTagName("body")[0].innerHTML += report
+
+
+
 </script>
 </body>
 </html>
