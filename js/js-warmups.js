@@ -758,3 +758,17 @@ $('#change-color').click(function(){
 // }, function () {
 //     $(this).css('background', 'white');
 // });
+
+
+// function encodeStr (string) {
+//     return string.toLowerCase()
+//         .replaceAll('a', '@')
+//         .replaceAll('i', '1')
+//         .replaceAll('s', '$')
+//         .replaceAll('a', '@')
+// }
+//
+// console.log(encodeStr('apple'));
+// console.log(encodeStr('codeup'));
+// console.log(encodeStr('SASS'));
+// console.log(encodeStr('bike'));
