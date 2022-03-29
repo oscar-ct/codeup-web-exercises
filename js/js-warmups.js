@@ -772,3 +772,39 @@ $('#change-color').click(function(){
 // console.log(encodeStr('codeup'));
 // console.log(encodeStr('SASS'));
 // console.log(encodeStr('bike'));
+
+
+
+
+function onlyVowels (str) {
+     return str.split('').filter(function(letter) {
+        if (letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u")
+            return letter;
+    });
+}
+
+function returnMostCommonVowel (string) {
+    if (onlyVowels(string).length === 0) {
+        return false;
+    }
+        let max = 0;
+        let maxChar = "";
+        onlyVowels(string).sort().forEach(function (char) {
+            if (string.split(char).length > max) {
+                max = string.split(char).length;
+                maxChar = char;
+            }
+        });
+        return maxChar;
+}
+
+console.log(returnMostCommonVowel('codeup')); // returns 'e'
+console.log(returnMostCommonVowel('leetcode')); // returns 'e'
+console.log(returnMostCommonVowel('banana')); // returns 'a'
+console.log(returnMostCommonVowel('asdf')); // returns 'a'
+console.log(returnMostCommonVowel('nnnn')); // returns false
+console.log(returnMostCommonVowel('hello')); // returns 'e'
+console.log(returnMostCommonVowel('needful')); // returns 'e'
+console.log(returnMostCommonVowel('hellooooo')); // returns 'o'
+console.log(returnMostCommonVowel('needfuuuuul')); // returns 'u'
+console.log(returnMostCommonVowel('lllllllllllzzzzxxxxx')); // returns 'false'
