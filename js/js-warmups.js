@@ -776,35 +776,101 @@ $('#change-color').click(function(){
 
 
 
-function onlyVowels (str) {
-     return str.split('').filter(function(letter) {
-        if (letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u")
-            return letter;
-    });
-}
+// function onlyVowels (str) {
+//      return str.split('').filter(function(letter) {
+//         if (letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u")
+//             return letter;
+//     });
+// }
+//
+// function returnMostCommonVowel (string) {
+//     if (onlyVowels(string).length === 0) {
+//         return false;
+//     }
+//         let max = 0;
+//         let maxChar = "";
+//         onlyVowels(string).sort().forEach(function (char) {
+//             if (string.split(char).length > max) {
+//                 max = string.split(char).length;
+//                 maxChar = char;
+//             }
+//         });
+//         return maxChar;
+// }
+//
+// console.log(returnMostCommonVowel('codeup')); // returns 'e'
+// console.log(returnMostCommonVowel('leetcode')); // returns 'e'
+// console.log(returnMostCommonVowel('banana')); // returns 'a'
+// console.log(returnMostCommonVowel('asdf')); // returns 'a'
+// console.log(returnMostCommonVowel('nnnn')); // returns false
+// console.log(returnMostCommonVowel('hello')); // returns 'e'
+// console.log(returnMostCommonVowel('needful')); // returns 'e'
+// console.log(returnMostCommonVowel('hellooooo')); // returns 'o'
+// console.log(returnMostCommonVowel('needfuuuuul')); // returns 'u'
+// console.log(returnMostCommonVowel('lllllllllllzzzzxxxxx')); // returns 'false'
 
-function returnMostCommonVowel (string) {
-    if (onlyVowels(string).length === 0) {
-        return false;
+
+//
+// ================================= WARM UP
+//
+// Create a function, returnAvgAdminSalary, that takes in an array of users and returns the average salary of all admins. Round to the nearest dollar.
+//
+//     Example:
+
+const users21 = [
+    {
+        name: 'Fred',
+        isAdmin: true,
+        salary: 20000
+    },
+    {
+        name: 'Cathy',
+        isAdmin: false,
+        salary: 40000
+    },
+    {
+        name: 'Sally',
+        isAdmin: true,
+        salary: 80000
+    },
+    {
+        name: 'Kyle',
+        isAdmin: true,
+        salary: 50000
+    },
+    {
+        name: 'Cynthia',
+        isAdmin: false,
+        salary: 100000
     }
-        let max = 0;
-        let maxChar = "";
-        onlyVowels(string).sort().forEach(function (char) {
-            if (string.split(char).length > max) {
-                max = string.split(char).length;
-                maxChar = char;
-            }
-        });
-        return maxChar;
-}
+];
 
-console.log(returnMostCommonVowel('codeup')); // returns 'e'
-console.log(returnMostCommonVowel('leetcode')); // returns 'e'
-console.log(returnMostCommonVowel('banana')); // returns 'a'
-console.log(returnMostCommonVowel('asdf')); // returns 'a'
-console.log(returnMostCommonVowel('nnnn')); // returns false
-console.log(returnMostCommonVowel('hello')); // returns 'e'
-console.log(returnMostCommonVowel('needful')); // returns 'e'
-console.log(returnMostCommonVowel('hellooooo')); // returns 'o'
-console.log(returnMostCommonVowel('needfuuuuul')); // returns 'u'
-console.log(returnMostCommonVowel('lllllllllllzzzzxxxxx')); // returns 'false'
+
+
+// function returnAvgAdminSalary (obj) {
+//     const newArray = []
+//     obj.forEach(function (admin) {
+//        newArray.push(admin.salary);
+//     });
+//     const total = newArray.reduce((accumulation, currentNumber) => {
+//         return accumulation + currentNumber;
+//     }, 0);
+//     return total / newArray.length
+// }
+//
+// console.log(returnAvgAdminSalary(users21));
+
+
+// function returnAvgAdminSalary (obj) {
+//     const admins = obj.filter(function (admin){
+//         return admin.isAdmin;
+//     });
+//     const total = admins.reduce(function (accumulation, currentNumber){
+//         return accumulation + currentNumber.salary;
+//     }, 0);
+//     return total / admins.length;
+// }
+//
+// console.log(returnAvgAdminSalary(users21));
+
+
