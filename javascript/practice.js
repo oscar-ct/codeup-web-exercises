@@ -1,38 +1,85 @@
+"use strict";
 
-blocks = [1, 3, 1, 3, 3] //11
-//6
-height = 2
 
-block = [2, 3 ,1, 1, 1] //8
-//5
+const blocks = [1, 3, 1, 3, 3] //11 total
+//6 answer
+const height = 2
 
-blockz = [3, 3 ,3, 3, 3] //15
-//9
+const block = [2, 3 ,1, 1, 1] //8 total
+//5 answer
+
+const blockz = [3, 3 ,3, 3, 3] //15 total
+//9 answer
+
+const blockzz = [3, 2 ,3, 6, 3] //17 total
+//9 answer
+
+const block2 = [3, 2 ,3, 6, 3] //17 total
+const height2 = 3
+//8 answer
 
 function solution (blocks, height) {
-   let totalWidth = 0;
-   for (let i = 0; i < blocks.length; i++) {
+    let widths = []
+    let totalWidth = 0;
+    for (let i = 0; i < blocks.length; i++) {
        totalWidth += blocks[i];
-   }
+    }
+    let halfTotalWidth = totalWidth/height;
 
-
-   for (let j = 0; j < 100; j++) {
-       // console.log((height * j));
-       if((height * j) >= totalWidth) {
-           console.log(j)
-           break;
+    for (let j = 0; j < blocks.length; j++) {
+       let double = blocks[j] + blocks[j + 1]
+       if (double > halfTotalWidth) {
+           widths.push(double)
        }
-   }
+    }
+
+    for (let k = 0; k < blocks.length; k++) {
+        let triple = blocks[k] + blocks[k + 1] + blocks[k + 2]
+
+        if (triple > halfTotalWidth) {
+            widths.push(triple);
+        }
+    }
 
 
-
-
-
-
+   console.log(totalWidth)
+   console.log(Math.min(...widths))
+    // console.log(widths);
+    return Math.min(...widths)
 
 }
 
-solution(blockz, height);
+solution(block2, height2);
+
+
+
+
+function solution10(az, za, trips) {
+    trips = 2;
+    let timeSpent = 0;
+    const travelTime = 100;
+
+    for (let i = 0; i < trips; i++) {
+
+        if (timeSpent === 0) {
+            timeSpent += az[i];
+            console.log(az[i]);
+            timeSpent += travelTime;
+            console.log(timeSpent);
+        }
+
+        for (let j = 0; j < za.length; j++) {
+            if (timeSpent <= za[j]) {
+                timeSpent += (za[j] - timeSpent);
+                console.log(timeSpent);
+                timeSpent += travelTime;
+                break;
+            }
+        }
+    }
+
+    return timeSpent;
+}
 
 
 // Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
