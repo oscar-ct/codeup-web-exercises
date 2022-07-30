@@ -82,6 +82,34 @@ function solution10(az, za, trips) {
 }
 
 
+function practiceSolution(arr) {
+
+    /// This was a practice solution, still needs work
+
+    let count = 0;
+    let newArray = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let num = arr.length - 1;
+
+        if (arr[i] > arr[i + 1] || arr[num - 1] > arr[num]) {
+            newArray.push(arr[i]);
+            count += newArray.length
+
+
+        } else {
+            count = arr.length
+        }
+
+
+    }
+    return count;
+}
+
+
+
+
+
 // Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
 // function findOdd(numbers) {
 //     let count = 0;
