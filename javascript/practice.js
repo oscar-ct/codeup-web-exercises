@@ -228,18 +228,94 @@ function solution(n) {
 //
 // Ratiorg needs statues of sizes 4, 5 and 7.
 
-function solution(statues) {
+let statues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let statues1 = [4, 2, 7, 18]
 
-    let sortedStatues = statues.sort()
+function sortSolution(statues) {
+
+    let sortedStatues = statues.sort(function(a, b){return a-b})
     let lowNum = sortedStatues[0];
-    let highNum = sortedStatues[statues.length - 1];
+    let highNum = sortedStatues[statues.length -1];
+    console.log(sortedStatues)
+    console.log(lowNum);
+    console.log(highNum);
+    console.log(((highNum - lowNum + 1) - (statues.length)))
     return ((highNum - lowNum + 1) - (statues.length))
 
 }
 
 
+// Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
+//
+//     Note: sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing.
+//
+//                                                                                                     Example
+//
+//                                                                                                     For sequence = [1, 3, 2, 1], the output should be
+// solution(sequence) = false.
+//
+//     There is no one element in this array that can be removed in order to get a strictly increasing sequence.
+//
+//     For sequence = [1, 3, 2], the output should be
+// solution(sequence) = true.
+//
+//     You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].
+//
 
 
+function solution(sequence) {
+
+    let count = 0
+
+    for (let i = 1; i < sequence.length; i++) {
+        if (sequence[i] <= sequence[i - 1]) {
+            count++
+        }
+
+        if (sequence[i] <= sequence[i-2] && sequence[i+1] <= sequence[i-1]) {
+            return false
+        }
+
+        if (count > 1) {
+            return false
+        }
+
+    }
+
+    return true;
+
+}
+
+
+
+// After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.
+//
+// Given matrix, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a 0).
+//
+// Example
+//
+// For
+//
+// matrix = [[0, 1, 1, 2],
+//     [0, 5, 0, 0],
+//     [2, 0, 3, 3]]
+// the output should be
+// solution(matrix) = 9.
+
+// There are several haunted rooms, so we'll disregard them as well as any rooms beneath them. Thus, the answer is 1 + 5 + 1 + 2 = 9.
+
+
+function solution(matrix) {
+
+    for (let i = 0; i < matrix.length; i++) {
+        let matrixLoop = matrix[i]
+        for (let i = 0; i < matrixLoop.length; i++) {
+            console.log(matrixLoop[i])
+        }
+    }
+
+
+}
 
 
 
