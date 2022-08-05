@@ -317,5 +317,221 @@ function solution(matrix) {
 
 }
 
+function solution(matrix) {
+
+    let total = 0
+
+    for (let i = 0; i < matrix[0].length; i++) {
+
+        for (let j = 0; j < matrix.length; j++) {
+            let matrixLoop = matrix[j][i]
+            if (matrixLoop === 0) {
+                console.log(matrixLoop)
+                break;
+
+            } else {
+                total += matrixLoop
+                console.log(matrixLoop)
+            }
+        }
+
+    }
+
+    return total;
 
 
+}
+
+
+//
+// Given an array of strings, return another array containing all of its longest strings.
+//
+//     Example
+//
+// For inputArray = ["aba", "aa", "ad", "vcd", "aba"], the output should be
+// solution(inputArray) = ["aba", "vcd", "aba"].
+
+
+function solution(inputArray) {
+
+    let newArr = []
+    let longestInArr = inputArray.reduce(function (a, b) {
+            return a.length > b.length ? a : b;
+        }
+    );
+
+
+    for (let i = 0; i < inputArray.length; i++) {
+        if(inputArray[i].length === longestInArr.length) {
+            newArr.push(inputArray[i])
+
+        }
+
+    }
+
+    return newArr;
+
+}
+
+
+
+// Given two strings, find the number of common characters between them.
+//
+//     Example
+//
+// For s1 = "aabcc" and s2 = "adcaa", the output should be
+// solution(s1, s2) = 3.
+//
+// Strings have 3 common characters - 2 "a"s and 1 "c".
+
+/////// This is attempt 1 and came very close to working  ///////////////
+function solution(s1, s2) {
+
+    let count = 0;
+    let sort1 = s1.split('').sort();
+    let sort2 = s2.split('').sort();
+    let matrix = [sort1, sort2]
+
+    console.log(sort1)
+    console.log(sort2)
+    console.log(matrix)
+
+    for (let i = 0; i < matrix.length - 1; i++) {
+        for(let j = 0; j < matrix[i].length; j++) {
+            if(matrix[i][j] === matrix[i + 1][j]) {
+                count++
+            }
+        }
+    }
+
+
+    return count;
+}
+
+/////// This is attempt 2 and completed!!!!! ///////////////
+
+function solution(s1, s2) {
+
+    let arr1 = s1.split('');
+    let arr2 = s2.split('');
+    let count1 = 0;
+    let count2 = 0;
+    let total = 0;
+    let letters = arrayOfLetterInCommon(s1, s2);
+
+
+    for (let i = 0; i < letters.length; i++) {
+
+        arr1.filter(function(x) {
+            if(x === letters[i]) {
+                count1++
+            }
+        });
+
+        arr2.filter(function(x) {
+            if(x === letters[i]) {
+                count2++
+            }
+        });
+
+        if (count1 <= count2) {
+            total += count1;
+
+        } else if (count2 <= count1) {
+            total += count2
+
+        }
+
+        count1 = 0;
+        count2 = 0;
+
+    }
+
+
+    return total;
+}
+
+
+
+
+function arrayOfLetterInCommon (string1, string2) {
+    let lettersInCommon = '';
+    for (let i = 0; i < string1.length; i++) {
+        if(string2.includes(string1[i])) {
+            lettersInCommon += string1[i];
+        }
+    }
+    let result = '';
+    for(let j = 0; j < lettersInCommon.length; j++) {
+        if(result.indexOf(lettersInCommon[j]) < 0) {
+            result += lettersInCommon[j];
+        }
+    }
+
+    return result;
+}
+
+//
+// Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
+//
+//     Given a ticket number n, determine if it's lucky or not.
+//
+// Example
+//
+// For n = 1230, the output should be
+// solution(n) = true;
+// For n = 239017, the output should be
+// solution(n) = false.
+
+function solution(n) {
+    let count1 = 0;
+    let count2 = 0;
+    let arrNum = n.toString().split('')
+
+    for (let i = 0; i <= arrNum.length/2 - 1; i++) {
+        count1 += parseInt(arrNum[i]);
+
+    }
+
+    for (let j = arrNum.length/2 ; j <= arrNum.length - 1; j++) {
+        count2 += parseInt(arrNum[j]);
+    }
+
+    if (count1 === count2) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+
+// Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
+//
+//     Example
+//
+// For a = [-1, 150, 190, 170, -1, -1, 160, 180], the output should be
+// solution(a) = [-1, 150, 160, 170, -1, -1, 180, 190].
+
+
+function solution(a) {
+
+    let answer = []
+    let strArr = a.toString().split(',');
+    let newArr = strArr.filter(function(x) {
+        return x != ('-1');
+    });
+    let newArrSorted = newArr.sort(function(a, b){return a-b});
+
+    for (let i = 0; i < strArr.length; i++) {
+        if (strArr[i] != ('-1')) {
+            strArr[i] = newArrSorted.shift();
+        }
+    }
+
+    for (let j = 0; j < strArr.length; j++) {
+        answer.push(parseInt(strArr[j]));
+    }
+
+    return answer;
+}
