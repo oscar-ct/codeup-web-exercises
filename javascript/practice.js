@@ -535,3 +535,64 @@ function solution(a) {
 
     return answer;
 }
+
+//
+// Write a function that reverses characters in (possibly nested) parentheses in the input string.
+//
+//     Input strings will always be well-formed with matching ()s.
+//
+//     Example
+//
+// For inputString = "(bar)", the output should be
+// solution(inputString) = "rab";
+// For inputString = "foo(bar)baz", the output should be
+// solution(inputString) = "foorabbaz";
+// For inputString = "foo(bar)baz(blim)", the output should be
+// solution(inputString) = "foorabbazmilb";
+// For inputString = "foo(bar(baz))blim", the output should be
+// solution(inputString) = "foobazrabblim".
+//     Because "foo(bar(baz))blim" becomes "foo(barzab)blim" and then "foobazrabblim".
+
+
+////// This is a partial solve, very hard challenge
+function solution(inputString) {
+
+    let inputString2 = inputString.split('')
+    let index1 = inputString2.indexOf('(');
+    let index2 = inputString2.indexOf(')');
+    let indexArray = []
+    let reverse = []
+
+    for (let index = 0; index < inputString2.length; index++) {
+        if(inputString2[index] === '(' || inputString2[index] === ')') {
+            indexArray.push(index);
+        }
+    }
+
+    console.log(indexArray);
+
+    for(let i = index1 + 1; i < index2; i++) {
+        reverse.push(inputString2[i])
+    }
+
+    reverse = reverse.reverse()
+
+    for(let j = index1 + 1; j < index2; j++) {
+        let count = 1
+        inputString2.splice([j], count, reverse.shift())
+        count++
+    }
+
+    let answer = ''
+    for(let k = 0; k < inputString2.length; k++) {
+
+        if (inputString2[k] !== '(' && inputString2[k] !== ')') {
+        answer += inputString2[k];
+        }
+    }
+
+
+ return answer;
+
+
+}
