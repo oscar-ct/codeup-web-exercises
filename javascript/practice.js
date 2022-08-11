@@ -596,3 +596,46 @@ function solution(inputString) {
 
 
 }
+
+
+const a2b = [109, 200, 500];
+const b2a = [99, 210, 450];
+const trips = 1;
+
+const a2b2 = [0, 200, 500];
+const b2a2 = [99, 210, 600];
+const trips2 = 2;
+
+const a2b3 = [5, 206];
+const b2a3 = [105, 306];
+const trips3 = 2;
+
+function solution10(a2b, b2a, trips) {
+    let timeSpent = 0;
+    const travelTime = 100;
+
+    for (let i = 0; i < trips; i++) {
+
+        if (timeSpent === 0) {
+            timeSpent += a2b[i];
+            console.log(a2b[i]);
+            timeSpent += travelTime;
+            console.log(timeSpent);
+        }
+
+        for (let j = 0; j < b2a.length; j++) {
+            if (timeSpent <= b2a[j]) {
+                timeSpent += (b2a[j] - timeSpent);
+                console.log(timeSpent);
+                timeSpent += travelTime;
+                break;
+            }
+        }
+    }
+
+    return timeSpent;
+}
+
+// console.log("answer: " + solution10(a2b, b2a, trips));
+// console.log("answer: " + solution10(a2b2, b2a2, trips2));
+console.log("answer: " + solution10(a2b3, b2a3, trips3));
