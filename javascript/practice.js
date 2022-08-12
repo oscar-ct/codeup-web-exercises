@@ -639,3 +639,47 @@ function solution10(a2b, b2a, trips) {
 // console.log("answer: " + solution10(a2b, b2a, trips));
 // console.log("answer: " + solution10(a2b2, b2a2, trips2));
 console.log("answer: " + solution10(a2b3, b2a3, trips3));
+
+
+
+
+
+
+
+// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times. function findOdd(numbers) {     let count = 0;     for(let i = 0; i < numbers.length; i++){         for(let j = 0; j < numbers.length; j++){             if(numbers[i] === numbers[j]){                 count++;             }         }         if(count % 2 !== 0 ){             return numbers[i];         }     } } // console.log(findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])); // console.log(findOdd([1,1,1,1,1,1,10,1,1,1,1]));
+// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
+function findOdd(numbers) {
+    let count = 0;
+    for(let i = 0; i < numbers.length; i++){
+        for(let j = 0; j < numbers.length; j++){
+            if(numbers[i] === numbers[j]){
+                count++;
+            }
+        }
+        if(count % 2 !== 0 ){
+            return numbers[i];
+        }
+    }
+}
+// console.log(findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]));
+// console.log(findOdd([1,1,1,1,1,1,10,1,1,1,1]));
+// takes a string input, and returns the first character that is not repeated anywhere in the string =>
+function firstNonRepeatingLetter(s) {
+    let letters = s.split("");
+    let result = "";
+    for(let i = 0; i < letters.length; i++) {
+        let counter = 0;
+
+        for(let j = 0; j < letters.length; j++) {
+            if (letters[i].toLowerCase() === letters[j].toLowerCase()){
+                counter += 1;
+            }
+        }
+        if (counter < 2){
+            result = letters[i];
+            break;
+        }
+    }
+    return result;
+}
+// console.log(firstNonRepeatingLetter("sTress"));
