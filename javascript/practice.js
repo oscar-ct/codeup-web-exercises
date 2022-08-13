@@ -683,3 +683,17 @@ function firstNonRepeatingLetter(s) {
     return result;
 }
 // console.log(firstNonRepeatingLetter("sTress"));
+
+
+
+
+// return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters. =>
+function getMiddle (x) {
+    const mid = Math.floor(x.length / 2);
+    let result = x[mid];
+    if(x.length % 2 === 0) {
+        result = x[mid - 1] + result;
+    }
+    return result;
+}
+console.log(getMiddle("testing"));
