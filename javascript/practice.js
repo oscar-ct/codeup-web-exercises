@@ -697,3 +697,20 @@ function getMiddle (x) {
     return result;
 }
 console.log(getMiddle("testing"));
+
+
+
+
+
+
+function disemvowel(str) {
+    const test = []
+    str = str.split('')
+    str.forEach(function(x) {
+        if (x !== 'a' && x !== 'e' && x !== 'i' && x !== 'o' && x !== 'u' && x !== 'A' && x !== 'E' && x !== 'I' && x !== 'O' && x !== 'U') {
+            test.push(x)
+        }
+    });
+
+    return test.join('');
+}
