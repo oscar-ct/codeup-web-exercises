@@ -714,3 +714,45 @@ function disemvowel(str) {
 
     return test.join('');
 }
+
+
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+//
+// Examples:
+//
+//     solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+
+function solution(str, ending){
+
+    const endingLength = ending.length;
+    const strLength = str.length;
+    let newStr = '';
+
+    for (let i = strLength - endingLength; i < str.length; i++) {
+        newStr += str[i];
+    }
+
+    if (newStr === ending) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+//
+// Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+//     Examples:
+//
+// Input: 42145 Output: 54421
+//
+// Input: 145263 Output: 654321
+//
+// Input: 123456789 Output: 987654321
+
+function descendingOrder(n){
+    const numArray = n.toString().split('').sort().reverse();
+    const str = numArray.join('')
+    return parseInt(str)
+}
