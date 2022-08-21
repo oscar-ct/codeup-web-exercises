@@ -879,3 +879,28 @@ function solution(a) {
     console.log(numArray);
     return numArray;
 }
+
+
+
+
+// Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+function solution(picture) {
+    const newArr = [];
+    picture.forEach(function(str) {
+        newArr.push('*' + str + '*');
+    });
+
+    let asterisks = '';
+
+    for (let i = 0; i < newArr[0].length; i++) {
+        asterisks += '*';
+    }
+
+    newArr.splice(0, 0, asterisks);
+    newArr.splice(newArr.length, newArr.length - 1, asterisks);
+
+    console.log(newArr);
+    return newArr;
+
+}
