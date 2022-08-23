@@ -904,3 +904,58 @@ function solution(picture) {
     return newArr;
 
 }
+
+
+
+// Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+//
+//     Given two arrays a and b, check whether they are similar.
+//
+//     Example
+//
+// For a = [1, 2, 3] and b = [1, 2, 3], the output should be
+// solution(a, b) = true.
+//
+//     The arrays are equal, no need to swap any elements.
+//
+//     For a = [1, 2, 3] and b = [2, 1, 3], the output should be
+// solution(a, b) = true.
+//
+//     We can obtain b from a by swapping 2 and 1 in b.
+//
+//     For a = [1, 2, 2] and b = [2, 1, 1], the output should be
+// solution(a, b) = false.
+//
+//     Any swap of any two elements either in a or in b won't make a and b equal.
+
+
+function solution(a, b) {
+///  THIS SOLUTION IS DOES NOT PASS THE CHALLENGE ABOVE, HOWEVER THIS WILL CHECK IF 2 INTEGER ARRAYS ARE IDENTICAL REGARDLESS OF INTEGER ORDER
+    const matrix = [a.sort(), b.sort()];
+    let count = 0;
+    console.log(matrix)
+
+    for (let i = 0; i < matrix.length - 1; i++) {
+        for (let j = 0; j < matrix[0].length; j++) {
+
+            console.log(matrix[i][j])
+            console.log(matrix[i+1][j])
+
+            if (matrix[i][j] === matrix[i + 1][j]) {
+                count++
+            }
+        }
+    }
+
+    console.log(count)
+
+
+
+    if (count === a.length) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+}
