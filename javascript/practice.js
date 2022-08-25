@@ -906,7 +906,7 @@ function solution(picture) {
 }
 
 
-
+// Are Similar???
 // Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
 //
 //     Given two arrays a and b, check whether they are similar.
@@ -953,6 +953,51 @@ function solution(a, b) {
         return false;
     }
 }
+
+
+///  THIS SOLUTION DOES PASS THE CHALLENGE ABOVE :] !!!!!!!
+function solution(a, b) {
+
+    const matrix = [a, b];
+    let count = 0;
+    let iArray = [];
+    console.log(matrix)
+
+    for (let i = 0; i < matrix.length - 1; i++) {
+        for (let j = 0; j < matrix[0].length; j++) {
+
+            if (matrix[i][j] !== matrix[i + 1][j]) {
+                iArray.push(matrix[i][j]);
+                iArray.push(matrix[i + 1][j]);
+            } else {
+                count++
+            }
+
+        }
+    }
+
+    console.log(iArray)
+
+    if(count === a.length) {
+        return true;
+    }
+
+    if (iArray.length <= 4) {
+
+        for (let k = 0; k < iArray.length; k++) {
+            return !(iArray[k] !== iArray[k + 3] || iArray[k + 1] !== iArray[k + 2]);
+        }
+
+    } else {
+        return false;
+    }
+
+
+}
+
+
+
+
 
 
 // You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array. =>
