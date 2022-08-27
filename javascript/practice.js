@@ -1046,3 +1046,50 @@ function solution(inputArray) {
     }
     return moves
 }
+
+
+
+
+//
+//
+//
+// Given a string, find out if its characters can be rearranged to form a palindrome.
+//
+//     Example
+//
+// For inputString = "aabb", the output should be
+// solution(inputString) = true.
+//
+//     We can rearrange "aabb" to make "abba", which is a palindrome.
+function solution(inputString) {
+    // let count = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v', 'w','v' ,'y','z'];
+    let count = "abcdefghijklmnopqrstuvwxyyz"
+    let words = ""
+    for (let i = 0; i < inputString.length ; i++) {
+        for (let j = 0; j < count.length; j++) {
+            if (inputString[i] === count[j] && !words.includes(count[j])) {
+                words += count[j]
+                console.log(words)
+            }
+        }
+    }
+
+    let wordCount = 0;
+
+    for (let k = 0; k < inputString.length; k++) {
+        for (let l = 0; l < words.length; l++) {
+            if (inputString[k] === words[l]) {
+                wordCount++
+            }
+        }
+    }
+
+    console.log(wordCount)
+
+    if (wordCount % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+////// This is a work in progress and not completed yet ////////
