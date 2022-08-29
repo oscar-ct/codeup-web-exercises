@@ -1093,3 +1093,52 @@ function solution(inputString) {
     }
 }
 ////// This is a work in progress and not completed yet ////////
+
+
+
+
+
+
+////// attempt #2  !!!!!!  This is a work in progress and not completed yet ////////
+function solution(inputString) {
+
+    let matrix = [inputString.split(''), inputString.split('')]
+    let words = 0;
+    let wordCount = []
+    console.log(matrix)
+
+    for (let i = 0; i < matrix.length - 1; i++) {
+        for (let j = 1; j < matrix[0].length; j++) {
+            if (matrix[i][j] === matrix[i + 1][j - 1] && matrix[i + 1][j] === matrix[i][j - 1]) {
+                words += 2
+
+                wordCount.push(words);
+                words = 0;
+            }
+            else if (matrix[i][j - 1] === matrix[i + 1][j - 1] && matrix[i][j] !== matrix[i + 1][j - 1] && matrix[i + 1][j] !== matrix[i][j - 1]) {
+                words++
+                wordCount.push(words);
+                words = 0;
+
+            }
+
+
+        }
+    }
+
+    console.log(wordCount.sort())
+
+    let correctCount = 0;
+
+    wordCount.sort()
+
+    for (let k = 0; k < wordCount.length; k++) {
+        if (wordCount[k] % 2 === 0) {
+            correctCount++
+
+        } else {
+
+        }
+    }
+
+}
