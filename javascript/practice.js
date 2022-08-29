@@ -1102,7 +1102,8 @@ function solution(inputString) {
 ////// attempt #2  !!!!!!  This is a work in progress and not completed yet ////////
 function solution(inputString) {
 
-    let matrix = [inputString.split(''), inputString.split('')]
+    let inputStringArray = inputString.split('')
+    let matrix = [inputStringArray.sort(), inputStringArray.sort()]
     let words = 0;
     let wordCount = []
     console.log(matrix)
@@ -1115,7 +1116,7 @@ function solution(inputString) {
                 wordCount.push(words);
                 words = 0;
             }
-            else if (matrix[i][j - 1] === matrix[i + 1][j - 1] && matrix[i][j] !== matrix[i + 1][j - 1] && matrix[i + 1][j] !== matrix[i][j - 1]) {
+            else if (matrix[i][j - 1] === matrix[i + 1][j - 1] && matrix[i][j] !== matrix[i + 1][j - 1] && matrix[i + 1][j] !== matrix[i][j - 1] && matrix[i][j] !== matrix[i + 1][j + 1] ) {
                 words++
                 wordCount.push(words);
                 words = 0;
@@ -1125,20 +1126,71 @@ function solution(inputString) {
 
         }
     }
-
-    console.log(wordCount.sort())
+    console.log(wordCount)
 
     let correctCount = 0;
-
-    wordCount.sort()
-
-    for (let k = 0; k < wordCount.length; k++) {
-        if (wordCount[k] % 2 === 0) {
+    wordCount.filter(function (x) {
+        if (x === 1) {
             correctCount++
+        }
+    });
 
-        } else {
+    console.log(correctCount)
 
+    if(correctCount <= 1) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+}
+
+
+
+// Attempt #3 THIS IS A WORKING SOLUTION YAYYYY
+function solution(inputString) {
+
+    // let alphabet  = "abcdefghijklmnopqrstuvwxyyz";
+    // for (let i = 0; i < inputString.length ; i++) {
+    //     for (let j = 0; j < alphabet.length; j++) {
+    //         if (inputString[i] === alphabet[j] && !words.includes(alphabet[j])) {
+    //             words += alphabet[j];
+    //         }
+    //     }
+    // }
+
+    let words = inputString[0];
+
+    for (let i = 1; i <= inputString.length; i++) {
+        if (!words.includes(inputString[i - 1])) {
+            words += inputString[i - 1];
         }
     }
+
+
+    let wordCountArray = [];
+    let wordCount = 0;
+    let inputStringArray = inputString.split('');
+
+    for (let k = 0; k < words.length; k++) {
+        inputStringArray.filter(function(char) {
+            if (char === words[k]) {
+                wordCount++;
+            }
+        });
+        wordCountArray.push(wordCount);
+        wordCount = 0;
+    }
+
+    let oddCounter = 0;
+    wordCountArray.filter(function (char) {
+        if (char % 2 !== 0) {
+            oddCounter++;
+        }
+    });
+
+    return oddCounter <= 1;
+
 
 }
