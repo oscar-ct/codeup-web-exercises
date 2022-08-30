@@ -1194,3 +1194,113 @@ function solution(inputString) {
 
 
 }
+
+
+
+// Call two arms equally strong if the heaviest weights they each are able to lift are equal.
+//
+//     Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.
+//
+//     Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
+//
+//     Example
+//
+// For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output should be
+// solution(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+// For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output should be
+// solution(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+// For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
+// solution(yourLeft, yourRight, friendsLeft, friendsRight) = false.
+
+
+function solution(yourLeft, yourRight, friendsLeft, friendsRight) {
+
+    let strengthArray1 = [yourLeft, yourRight];
+    let strengthArray2 = [friendsLeft, friendsRight];
+    strengthArray1.sort();
+    strengthArray2.sort();
+
+    return strengthArray1[0] === strengthArray2[0] && strengthArray1[0 + 1] === strengthArray2[0 + 1]
+
+}
+
+
+// Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
+//
+//     Example
+//
+// For inputArray = [2, 4, 1, 0], the output should be
+// solution(inputArray) = 3.
+
+
+function solution(inputArray) {
+
+    let differenceArray = [];
+
+    for (let i = 1; i < inputArray.length - 1; i++) {
+        let num = Math.abs(inputArray[i] - inputArray[i - 1]);
+        let num2 = Math.abs(inputArray[i] - inputArray[i + 1]);
+
+
+        if (num > num2) {
+            differenceArray.push(num);
+        } else {
+            differenceArray.push(num2);
+        }
+
+    }
+
+    console.log(differenceArray);
+
+    return Math.max(...differenceArray)
+
+
+}
+
+
+
+// An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.
+//
+//     Given a string, find out if it satisfies the IPv4 address naming rules.
+//
+//     Example
+//
+// For inputString = "172.16.254.1", the output should be
+// solution(inputString) = true;
+//
+// For inputString = "172.316.254.1", the output should be
+// solution(inputString) = false.
+//
+// 316 is not in range [0, 255].
+//
+//     For inputString = ".254.255.0", the output should be
+// solution(inputString) = false.
+//
+//     There is no first number.
+
+
+function solution(inputString) {
+
+    let charArray = inputString.split('');
+    let numArray = inputString.split('.');
+    let dotArray = charArray.filter(function(char) {
+        return char === '.';
+    });
+    let revisedNumArray = numArray.filter(function(num) {
+        return num !== '' && num <= 255 && num >= 0;
+
+    });
+    let invalidNumChecker = true;
+
+    revisedNumArray.forEach(function(num) {
+        let numArray = num.split('');
+        for (let i = 0; i < numArray.length; i++) {
+            if (numArray[i] == 0 && numArray.length > 1) {
+                invalidNumChecker = false;
+            }
+        }
+    });
+
+    return dotArray.length === revisedNumArray.length - 1 && revisedNumArray.length === 4 && invalidNumChecker;
+
+}
