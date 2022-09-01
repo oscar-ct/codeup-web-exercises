@@ -1391,3 +1391,28 @@ function solution (inputArray, elemToReplace, substitutionElem) {
 
 
 }
+
+
+// Check if all digits of the given integer are even.
+//
+//     Example
+//
+// For n = 248622, the output should be
+// solution(n) = true;
+// For n = 642386, the output should be
+// solution(n) = false.
+
+function solution(n) {
+    const str = '' + n;
+    const strArray = str.split('');
+    let oddCount = 0;
+
+    strArray.forEach(function(num) {
+        if (num % 2 !== 0) {
+            oddCount++;
+        }
+    });
+
+    return oddCount === 0;
+
+}
