@@ -1416,3 +1416,38 @@ function solution(n) {
     return oddCount === 0;
 
 }
+
+
+
+// Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
+//
+// Check if the given string is a correct variable name.
+//
+//     Example
+//
+// For name = "var_1__Int", the output should be
+// solution(name) = true;
+// For name = "qq-q", the output should be
+// solution(name) = false;
+// For name = "2w2", the output should be
+// solution(name) = false.
+
+
+function solution(name) {
+    const strList = 'abcdefghijklmnopqrstuvwxyz0123456789_';
+    const numList = '0123456789'
+
+    const nameArr = name.toLowerCase().split('');
+    let count = 0;
+
+    nameArr.forEach(function(char) {
+        if(!strList.includes(char)) {
+            count++
+        }
+    });
+
+    return !numList.includes(nameArr[0]) && count === 0;
+
+
+}
+
