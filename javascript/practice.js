@@ -1355,3 +1355,39 @@ function firstNonConsecutive(array) {
     return null;
 }
 // console.log(firstNonConsecutive([1,2,3,4,6,7,8]));
+
+
+
+// Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+//
+//     Example
+//
+//     For inputArray = [1, 2, 1], elemToReplace = 1, and substitutionElem = 3, the output should be
+// solution(inputArray, elemToReplace, substitutionElem) = [3, 2, 3].
+
+
+function solution (inputArray, elemToReplace, substitutionElem) {
+
+    const a = inputArray.map(function(num) { return num == elemToReplace ? substitutionElem : num; });
+
+
+    const b = inputArray.map(function(num) {
+        if (num === elemToReplace) {
+            return substitutionElem;
+        } else {
+            return num;
+        }
+    });
+
+    inputArray.forEach(function(num, i) {
+        if (num === elemToReplace) {
+            inputArray[i] = substitutionElem;
+        }
+    });
+
+// return a;
+// return b;
+    return inputArray;
+
+
+}
