@@ -1451,3 +1451,31 @@ function solution(name) {
 
 }
 
+
+
+// Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).
+//
+// Example
+//
+// For inputString = "crazy", the output should be solution(inputString) = "dsbaz".
+
+
+function alphabeticShift(inputString) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const alphabetArray = alphabet.split('');
+    const inputStringArray = inputString.split('')
+    const shiftArray = [];
+
+    inputStringArray.forEach(function(char) {
+        for (let i = 0; i < alphabetArray.length; i++) {
+            if (char === alphabetArray[i] && char !== 'z') {
+                shiftArray.push(alphabetArray[i + 1]);
+            } else if (char === 'z') {
+                shiftArray.push('a');
+                break;
+            }
+        }
+    });
+
+    return shiftArray.join('');
+}
