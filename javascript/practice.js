@@ -1479,3 +1479,54 @@ function alphabeticShift(inputString) {
 
     return shiftArray.join('');
 }
+
+
+
+
+// Given two cells on the standard chess board, determine whether they have the same color or not.
+//
+//     Example
+//
+// For cell1 = "A1" and cell2 = "C3", the output should be
+// solution(cell1, cell2) = true.
+// For cell1 = "A1" and cell2 = "H3", the output should be
+// solution(cell1, cell2) = false.
+
+
+
+
+function chessBoardCellColor(cell1, cell2) {
+
+    const letterArray = ['A','B','C','D','E','F','G','H'];
+    const blackChessboard = [];
+    const whiteChessboard = [];
+
+    letterArray.forEach(function(char) {
+        for (let i = 1; i < 9; i++) {
+            let move = char + i;
+            if (char === 'A' || char === 'C' || char === 'E' || char === 'G') {
+                if (i % 2 !== 0) {
+                    blackChessboard.push(char + i);
+                } else {
+                    whiteChessboard.push(char + i);
+                }
+            } else {
+                if (i % 2 === 0) {
+                    blackChessboard.push(char + i);
+                } else {
+                    whiteChessboard.push(char + i);
+                }
+            }
+        }
+    });
+
+
+    if (whiteChessboard.includes(cell1) && whiteChessboard.includes(cell2)) {
+        return true;
+    } else if (blackChessboard.includes(cell1) && blackChessboard.includes(cell2)) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
