@@ -1640,3 +1640,31 @@ function absoluteValuesSumMinimization(a) {
     return a[minIndex];
 
 }
+
+
+
+// Imagine you are in a universe where you can just perform the following arithematic operations. Addition(+), Subtraction(-), Multiplication(*), Division(/). You are given given a postfix expression. Postfix expression is where operands come after operator. Each operator and operand are seperated by a space. You need to evaluate the expression.
+//
+// For example: 25 45 + is equivalent of 25 + 45, hence the answer would be 70. Instead if you are given 20 40 + 60 *, it is equivalent of (20+40) * 60, hence the answer should be 3600. 20 40 60 + * is equivalent of 20 * (40 + 60) = 2000.
+//
+// Create a method 'evaluate' that takes a string as input and returns a long resulted in the evaluation. Just concentrate on happy paths. Assume that expression is always valid and division is always an integer division.
+//
+
+function postfixEvaluator(string) {
+
+    let numArray = [];
+    let expressionArray = [];
+    const stringArray = string.split('');
+
+    stringArray.forEach(function(char) {
+        if (!isNaN(parseInt(char))) {
+            numArray.push(char);
+        } else if (isNaN(parseInt(char)) & char !== " ") {
+            expressionArray.push(char);
+        }
+    });
+    console.log(numArray);
+    console.log(expressionArray);
+
+
+}
