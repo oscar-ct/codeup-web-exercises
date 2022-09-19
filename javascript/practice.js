@@ -1834,3 +1834,24 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
     return count;
 
 }
+
+
+// Given a string, output its longest prefix which contains only digits.
+//
+//     Example
+//
+// For inputString = "123aa1", the output should be
+// solution(inputString) = "123".
+//
+
+function longestDigitsPrefix(inputString) {
+
+    let nonDigitIndexes = [];
+    inputString.split('').forEach(function(char, i) {
+        if (isNaN(parseInt(char))) {
+            nonDigitIndexes.push(i)
+        }
+    });
+
+    return inputString.slice(0, nonDigitIndexes[0])
+}
