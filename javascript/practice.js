@@ -1855,3 +1855,18 @@ function longestDigitsPrefix(inputString) {
 
     return inputString.slice(0, nonDigitIndexes[0])
 }
+
+
+//Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+function solution (inputArray) {
+    let num = 1;
+    let array = [];
+    for (let i = 0; i < inputArray.length; i++) {
+        solution.push(num + ": " + inputArray[i])
+        num += 1;
+    }
+    return array;
+}
