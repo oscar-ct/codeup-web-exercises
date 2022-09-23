@@ -1889,3 +1889,42 @@ function findEmailDomain(address) {
     let answer = address.split('@');
     return answer[answer.length - 1];
 }
+
+
+//
+// Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+//
+//     Example
+//
+// For st = "abcdc", the output should be
+// solution(st) = "abcdcba".
+
+
+function buildPalindrome(st) {
+
+    let inputArrayReverse = st.split('').reverse();
+    let arrayList = [];
+
+    if (st === inputArrayReverse.join('')) {
+        return st;
+    }
+
+    for (let i = 0; i < inputArrayReverse.length; i++) {
+
+        let newArr = inputArrayReverse.slice(i, inputArrayReverse.length);
+        let stPalindrome = st + newArr.join('');
+        let stPalindromeReverse = stPalindrome.split('').reverse().join('');
+
+        if (stPalindrome === stPalindromeReverse) {
+            arrayList.push(stPalindrome);
+        }
+
+    }
+
+    let shortestStr = arrayList.reduce(function(a, b) {
+        return a.length <= b.length ? a : b;
+    });
+
+    return shortestStr;
+
+}
