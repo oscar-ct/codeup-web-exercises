@@ -1981,3 +1981,45 @@ function IsMAC48Address(inputString) {
     return count === 6;
 
 }
+
+
+
+// Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+//
+//     Example
+//
+// For n = 152, the output should be
+// solution(n) = 52;
+// For n = 1001, the output should be
+// solution(n) = 101.
+
+
+function deleteDigit(n) {
+
+    let s = n.toString();
+    let arr = s.split('');
+    let nums = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        arr.splice(i, 1);
+        let total = arr.reduce(function(a, b) {
+            return a + b
+        }, 0);
+        nums.push((parseInt(total)));
+        arr = s.split('');
+    }
+
+    console.log(nums)
+    let largestNum = nums.reduce(function(a, b) {
+        if (a >= b) {
+            return a;
+        } else {
+            return b;
+        }
+    });
+
+    console.log(largestNum);
+    // return Math.max(...nums)
+    return largestNum;
+
+}
