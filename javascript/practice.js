@@ -2023,3 +2023,45 @@ function deleteDigit(n) {
     return largestNum;
 
 }
+
+
+// Define a word as a sequence of consecutive English letters. Find the longest word from the given string.
+//
+//     Example
+//
+// For text = "Ready, steady, go!", the output should be
+// solution(text) = "steady".
+
+
+function longestWord(text) {
+    const strArr = text.split(' ');
+    const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let newArr = [];
+
+    strArr.forEach(function(word) {
+        const wordArr = word.split('');
+        let englishText = wordArr.filter(function(char) {
+            return alphabet.includes(char);
+        });
+        newArr.push(englishText.join(''));
+    })
+
+    // console.log(newArr);
+    // newArr.sort(function(a, b) {
+    //     return a.length - b.length;
+    // });
+    // console.log(newArr);
+
+    // return newArr[newArr.length - 1];
+
+
+    return newArr.reduce(function(a, b) {
+        if (a.length <= b.length) {
+            return b;
+        } else {
+            return a;
+        }
+    });
+
+}
+
