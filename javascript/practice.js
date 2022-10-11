@@ -2087,3 +2087,44 @@ function validTime(time) {
     }
     return validTimeArray.length === 2;
 }
+
+
+
+// CodeMaster has just returned from shopping. He scanned the check of the items he bought and gave the resulting string to Ratiorg to figure out the total number of purchased items. Since Ratiorg is a bot he is definitely going to automate it, so he needs a program that sums up all the numbers which appear in the given input.
+//
+//     Help Ratiorg by writing a function that returns the sum of numbers that appear in the given inputString.
+//
+//     Example
+//
+// For inputString = "2 apples, 12 oranges", the output should be
+// solution(inputString) = 14.
+
+
+function sumUpNumbers(inputString) {
+    const inputArray = inputString.split('');
+    const newArr = [];
+
+    const numbersAndBangArray = inputArray.map(function(char) {
+        if (isNaN(parseInt(char))) {
+            return "!";
+        } else {
+            return char;
+        }
+    });
+
+    const numbersAndBangString = numbersAndBangArray.join('');
+    const numbersOnlyArray = numbersAndBangString.split('!');
+
+    numbersOnlyArray.forEach(function(char) {
+        if (char !== '') {
+            newArr.push(char);
+        }
+    });
+
+
+    return newArr.reduce(function(a, b) {
+        return parseInt(a) + parseInt(b);
+    }, 0);
+
+
+}
