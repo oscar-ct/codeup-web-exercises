@@ -2149,3 +2149,22 @@ function CircleOfNumbers(n, firstNumber) {
     return (n/2 + firstNumber) % n;
 
 }
+
+// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+function haystack (haystack, needle) {
+    if (haystack.length >= needle.length) {
+        let j;
+        for (let i = 0; i < haystack.length; i++) {
+            for (j = 0; j < needle.length; j++) {
+                if (needle[j] !== haystack[i + j]) {
+                    break;
+                }
+            }
+            if (j === needle.length) {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
