@@ -2167,4 +2167,6 @@ function haystack (haystack, needle) {
         }
     }
     return -1;
+    ///////   solution #2, by c-berry;   ////////
+    // return haystack.indexOf(needle);
 }
