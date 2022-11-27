@@ -1020,10 +1020,10 @@ function longestConsec(strarr, k) {
 // console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2));
 
 
-for (let i = 0; i < 1000; i++) {
-    count++
-    console.log(count)
-}
+// for (let i = 0; i < 1000; i++) {
+//     count++
+//     console.log(count)
+// }
 
 
 // You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
@@ -1865,7 +1865,7 @@ function solution (inputArray) {
     let num = 1;
     let array = [];
     for (let i = 0; i < inputArray.length; i++) {
-        solution.push(num + ": " + inputArray[i])
+        array.push(num + ": " + inputArray[i])
         num += 1;
     }
     return array;
@@ -2200,3 +2200,37 @@ const isSameTree2 = (p, q) => {
     }
     return isSameTree2(p.left, q.left) && isSameTree2(p.right,q.right);
 };
+
+
+
+
+
+// Given an integer numRows, return the first numRows of Pascal's triangle.
+// In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+// Example 1:
+// Input: numRows = 5
+// Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+// Example 2:
+// Input: numRows = 1
+// Output: [[1]]
+
+const generate = (numRows) => {
+    const output = [];
+
+    for (let i = 0; i < numRows; i++) {
+        const rowValue = [];
+
+        for (let j = 0; j < i + 1; j++) {
+            if (j === 0 || j === i) {
+                rowValue[j] = 1;
+            } else {
+                rowValue[j] = output[i - 1][j - 1] + output[i - 1][j];
+            }
+        }
+        output.push(rowValue)
+    }
+
+    console.log(output);
+    return output;
+};
+
